@@ -7,7 +7,7 @@
  <target name="zip">
   <mkdir dir="${project.name}"/>
   <copy todir="${project.name}">
-   <fileset dir="./src" includes="*"/>
+   <fileset dir="./src" includes="**/**"/>
   </copy>
   
   <mkdir dir="${build.dir}" />
