@@ -6,6 +6,5 @@
     </meta>
     <projectTree name="teilex0-oxygen-framework.xpr">
         <folder path="teilex0-oxygen-framework"/>
-        <file name="Readme.md"/>
     </projectTree>
 </project>
