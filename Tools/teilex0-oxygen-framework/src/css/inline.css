@@ -1,0 +1,13 @@
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+entry > form {
+  display: inline;
+}
+entry > sense {
+  display: inline;
+}
+entry > sense > sense {
+  display: inline;
+}
+oxy|comment {
+  display: none !important;
+}

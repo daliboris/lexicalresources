@@ -1,0 +1,55 @@
+@header-color: #004477;
+@table-border-color: #EEEFEE;
+
+TEI {
+    display:block;
+    margin : 0.5em ;
+}
+
+body {
+  margin: 1em;
+  display: block;
+  
+  div > head,
+  div > div > head {
+    padding-top:0.6em;
+    padding-bottom:0.2em;
+    padding-left:0.2em;
+    padding-right:0em;
+    background-color:inherit;
+    color:@header-color;
+    border-bottom:1px solid @header-color;
+ }
+}
+
+div {
+ display:block;
+ head {
+    padding-top:0.6em;
+    padding-bottom:0.2em;
+    padding-left:0.2em;
+    padding-right:0em;
+    background-color:inherit;
+    color:@header-color;
+    border-bottom:1px solid @header-color;
+ }
+}
+
+table {
+  border: 1px solid @table-border-color;
+}
+
+graphic{
+    content: attr(url, url);
+    width:attr(width, length);
+    height:attr(height, length);
+}
+
+/*
+    Foldable elements
+*/
+
+div {
+    -oxy-foldable:true;
+    -oxy-not-foldable-child: head;
+}

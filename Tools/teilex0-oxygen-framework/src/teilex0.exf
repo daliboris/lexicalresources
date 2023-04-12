@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+
+The file must be saved inside a framework directory, the same place where a *.framework file should sit.
+
+To generate a *.framework file out of the script, you need to use the "Compile Framework Extension script" action 
+from the contextual menu.
+-->
+<script xmlns="http://www.oxygenxml.com/ns/framework/extend"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.oxygenxml.com/ns/framework/extend http://www.oxygenxml.com/ns/framework/extend/frameworkExtensionScript.xsd">
+  <name>TEI Lex-0</name>
+  <description>oXygen XML framework for TEI Lex-0 resources.</description>
+  <priority>High</priority>
+
+  <associationRules>
+   <addRule namespace="http://www.tei-c.org/ns/1.0" rootElementLocalName="TEI" fileName="*" publicID="*" javaRuleClass=""
+      attributeLocalName="*" attributeNamespace="*" attributeValue="*"/>
+  </associationRules>
+
+
+ <xmlCatalogs>
+  <addEntry path="${framework}/catalog.xml"/>
+ </xmlCatalogs>
+ 
+  <documentTemplates>
+    <addEntry path="${frameworkDir}/templates"/>
+  </documentTemplates>
+  
+  <classpath>
+    <addEntry path="${framework}/resources"/>
+   <addEntry path="${framework}/i18n"/>
+  </classpath>
+
+   <defaultSchema schemaType="rng" href="schemas/0.9.1/TEILex0.rng"/>
+
+  <author>
+   
+   <css selectMultipleAlternateCSS="true">
+    <addCss path="${framework}/css/body.less" title="Body" alternate="false" />
+    <addCss path="${framework}/css/header.less" title="TEI Header" alternate="false"/>
+    <addCss path="${framework}/css/print.less" title="Print" alternate="false" />
+    <addCss path="${framework}/css/inline.less" title="+ Inline sense" alternate="true" />
+   </css>
+    <!-- 
+      Author Actions are loaded from these directories:
+      {framework_directory}/externalAuthorActions
+      {framework_directory}/{framework_file_name}_externalAuthorActions
+      
+      https://www.oxygenxml.com/doc/versions/22.1/ug-editor/topics/dg-create-custom-actions.html#dg-create-custom-actions__section_2
+    -->
+    <toolbars>
+      <toolbar>
+        <separator/>
+        <addAction id="insert.entry"/>
+      </toolbar>
+
+    </toolbars>
+
+    <contextualMenu>
+     <submenu name="${i18n(submenu.entry)}">
+        <addAction id="insert.entry"/>
+      </submenu>
+    </contextualMenu>
+
+    <contentCompletion>
+      <authorActions>
+       <addAction id="insert.entry" replacedElement="entry" inCCWindow="true"/>
+      </authorActions>
+    </contentCompletion>
+  </author>
+
+ <transformationScenarios>
+  <addScenarios href="resources/teilex0.scenarios"/>
+ </transformationScenarios>
+
+</script>

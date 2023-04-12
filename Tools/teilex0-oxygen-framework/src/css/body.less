@@ -1,0 +1,42 @@
+@namespace xml "http://www.w3.org/XML/1998/namespace";
+
+@import "oxygen.less";
+@import "common.less";
+
+
+teiHeader {
+  display: none;
+}
+text {
+  display: block;
+}
+
+entry {
+  margin: 1em;
+  display: block;
+  > form {
+ display:inline;
+ }
+  
+}
+
+
+
+orth {
+ font-weight:bold;
+}
+
+pron:before {
+ content: "[";
+}
+pron:after {
+ content: "]";
+}
+
+sense
+{
+  display: block;
+}
+def {
+ font-style: italic;
+}

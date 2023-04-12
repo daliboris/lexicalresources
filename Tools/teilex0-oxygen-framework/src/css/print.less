@@ -1,0 +1,22 @@
+@import "common.less";
+
+@media print {
+	@page {
+	size: a4;
+	@top-left {
+	 content: "TEI Lex-0";
+	} 
+	@bottom-right {
+    content: counter(page);
+  }
+  
+  @top-right {
+  content: string(headword);
+}
+	}
+	
+ entry > form > orth {
+  string-set: headword contents();
+}
+	
+}

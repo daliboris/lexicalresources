@@ -1,0 +1,236 @@
+@add-color: green;
+@head-background-color: #BBBBBB;
+
+abbr {
+  display: inline;
+}
+
+add {
+  display: inline;
+  color: @add-color;
+  background-color: inherit;
+  text-decoration: underline;
+}
+address {
+  display: block;
+  margin: 2em;
+}
+
+addrLine {
+  display: block;
+  white-space: nowrap;
+}
+anchor {
+  display: none;
+}
+argument {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+author {
+  display: inline;
+}
+    
+back {
+  display: block;
+  border: thin black solid;
+  margin-top: 1em;
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+}
+bibl {
+  display: inline;
+}
+    
+argument > bibl, body > bibl, cit > bibl, div > bibl, div0 > bibl, div1 > bibl, div2 > bibl, div3 > bibl, div4 > bibl, div5 > bibl, div6 > bibl, div7 > bibl, epigraph > bibl, listBibl > bibl > bibl, taxonomy > bibl {
+  display: block;
+  margin-bottom: 0.5em;
+}
+biblFull {
+  display: inline;
+}
+    
+argument > biblFull, body > biblFull, cit > biblFull, div > biblFull, div0 > biblFull, div1 > biblFull, div2 > biblFull, div3 > biblFull, div4 > biblFull, div5 > biblFull, div6 > biblFull, div7 > biblFull, epigraph > biblFull, listBibl > biblFull > biblFull, taxonomy > biblFull {
+  display: block;
+  margin-bottom: 0.5em;
+}
+biblScope {
+  display: inline;
+}
+    
+imprint > biblScope {
+  display: block;
+}
+    
+body {
+  margin-top: 5px;
+  margin-left: 10px;
+  display: block;
+  counter-reset: div1;
+
+}
+byline {
+  display: block;
+  font-style: italic;
+  margin-bottom: 0.5em;
+}
+
+corr {
+  display: inline;
+  color: green;
+  background-color: inherit;
+}
+creation {
+  display: block;
+}
+date {
+  display: inline;
+}
+    
+change > date, publicationStmt > date {
+  display: block;
+  font-weight: bold;
+}
+dateline {
+  display: inline;
+}
+del {
+  display: inline;
+  color: red;
+  background-color: inherit;
+  text-decoration: line-through;
+}
+
+docAuthor {
+  display: block;
+  margin-bottom: 0.5em;
+}
+    
+byline docAuthor {
+  display: inline;
+}
+    
+titlePage docAuthor {
+
+}
+    
+titlePage docTitle {
+
+}
+    
+edition {
+  display: block;
+  margin-bottom: 0.5em;
+}
+    
+bibl edition {
+  display: inline;
+}
+    
+editionStmt {
+  display: block;
+  margin-bottom: 1em;
+}
+editor {
+  display: block;
+  margin-bottom: 0.5em;
+}
+    
+bibl editor {
+  display: inline;
+}
+
+
+emph {
+  display: inline;
+  font-style: italic;
+}
+epigraph {
+  display: block;
+  margin-bottom: 1em;
+  text-align: center;
+}
+    
+extent {
+  display: block;
+  margin-bottom: 1em;
+}
+    
+bibl extent {
+  display: inline;
+}
+ 
+graphic{
+    color: gray;
+    background-color: inherit;
+    content: "{" attr(url) "}";    
+}
+figure {
+  display: block;
+  margin-bottom: 1em;
+}
+foreign {
+  display: inline;
+  font-style: italic;
+}
+formula {
+  display: inline;
+  font-style: italic;
+}
+front {
+  display: block;
+  margin-bottom: 1em;
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+}
+funder {
+  display: block;
+  margin-bottom: 0.5em;
+}
+gap {
+  display: none;
+}
+    
+gap:after {
+  content: "[...]";
+  font-style: italic;
+}
+
+gloss {
+  display: inline;
+}
+
+body {
+ > div  {
+  > head {
+  display: block;
+  font-size: larger;
+  padding-top: 14px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  color: inherit;
+  background-color: @head-background-color;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+ div {
+  > head {
+  display: block;
+  padding-top: 14px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  color: inherit;
+  background-color: @head-background-color;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+  }
+ }
+ } 
+}

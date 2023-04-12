@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <meta>
+        <filters directoryPatterns="" filePatterns="\Qteilex0-oxygen-framework.xpr\E" positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="teilex0-oxygen-framework.xpr">
+        <folder path="teilex0-oxygen-framework"/>
+        <file name="Readme.md"/>
+    </projectTree>
+</project>
