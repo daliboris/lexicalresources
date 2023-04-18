@@ -1,0 +1,196 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Lingvo API Shared Set",
+		"_postman_id": "23529be7-4771-4ea1-9115-7b3add4afbc8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"request": {
+				"url": "{{ServiceUrl}}/api/v1/authenticate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic {{ApiKey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Translation",
+			"request": {
+				"url": "{{ServiceUrl}}/api/v1/Translation?text=go&srcLang=1033&dstLang=1049",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Словарный перевод слова/фразы. Поиск осуществляется только в указанном направлении"
+			},
+			"response": []
+		},
+		{
+			"name": "WordList",
+			"request": {
+				"url": "{{ServiceUrl}}/api/v1/WordList?prefix=mother&srcLang=1033&dstLang=1049&pageSize=20&startPos",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Часть словника, соответствующая имеющимся словарям"
+			},
+			"response": []
+		},
+		{
+			"name": "Minicard",
+			"request": {
+				"url": "{{ServiceUrl}}/api/v1/Minicard?text=towel&srcLang=1033&dstLang=1049",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Миникарточка (краткий перевод слова/фразы)"
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"url": "{{ServiceUrl}}/api/v1/Search?text=mother&srcLang=1033&dstLang=1049&searchZone=15&startIndex=0&pageSize=10",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Полнотекстовый поиск по статьям доступных словарей"
+			},
+			"response": []
+		},
+		{
+			"name": "Article",
+			"request": {
+				"url": "{{ServiceUrl}}/api/v1/Article?heading=connect&dict=Electronics%20(En-Ru)&srcLang=1033&dstLang=1049",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"description": ""
+					},
+					{
+						"key": "Accept-Language",
+						"value": "ru",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Конкретная статья из конкретного словаря Lingvo"
+			},
+			"response": []
+		},
+		{
+			"name": "Suggests",
+			"request": {
+				"url": "{{ServiceUrl}}/api/v1/Suggests?text=helo&srcLang=1033&dstLang=1049",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Саджесты"
+			},
+			"response": []
+		},
+		{
+			"name": "WordForms",
+			"request": {
+				"url": "{{ServiceUrl}}/api/v1/WordForms?text=han&lang=1033",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Словоформы для слова"
+			},
+			"response": []
+		},
+		{
+			"name": "Sound",
+			"request": {
+				"url": "{{ServiceUrl}}/api/v1/Sound?dictionaryName=LingvoUniversal%20(En-Ru)&fileName=mother.wav",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{Token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

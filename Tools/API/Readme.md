@@ -1,0 +1,536 @@
+# Dictionary APIs
+
+## [ELEXIS](https://elexis-eu.github.io/elexis-rest/elexis.html)
+
+- [Documentation](https://elexis-eu.github.io/elexis-rest/elexis.html)
+- OpenApi: link form [Documentation](https://elexis-eu.github.io/elexis-rest/elexis.html)
+- [Local OpenApi](Resources/ELEXIS.json)
+
+### Endpoints
+
+- GET /about/{dictionary}
+  - About the dictionary
+  - parameters
+    - dictionary (string)
+    - X-API-KEY (string)
+- GET /dictionaries
+  - Get dictionaries
+  - parameters
+    - X-API-KEY (string)
+- GET /json/{dictionary}/{id}
+  - Entry as JSON
+  - parameters
+    - dictionary (string)
+    - id (string)
+    - X-API-KEY (string)
+- GET /lemma/{dictionary}/{headword}
+  - Headword lookup
+  - parameters
+    - dictionary (string)
+    - headword (string)
+    - partOfSpeech (string: ADJ|ADP|ADV|AUX|CCONJ|DET|INTJ|NOUN|NUM|PART|PRON|PROPN|PUNCT|SCONJ|SYM|VERB|X|adjective|adposition|adverb|auxiliary|coordinatingConjunction|determiner|interjection|commonNoun|numeral|particle|pronoun|properNoun|punctuation|subordinatingConjunction|symbol|verb|other)
+    - limit (integer)
+    - offset (integer)
+    - inflected (boolean)
+    - X-API-KEY (string)
+- GET /list/{dictionary}
+  - Get all lemmas
+  - parameters
+    - dictionary (string)
+    - limit (integer)
+    - offset (integer)
+    - X-API-KEY (string)
+- GET /ontolex/{dictionary}/{id}
+  - Entry as Turtle
+  - parameters
+    - dictionary (string)
+    - id (string)
+    - X-API-KEY (string)
+- GET /tei/{dictionary}/{id}
+  - Entry XML
+  - parameters
+    - dictionary (string)
+    - id (string)
+    - X-API-KEY (string)
+
+## [Lexicala](https://api.lexicala.com)
+
+- lexical data of K Dictionaries originating from lexicographical resources covering 50 languages, and including monolingual cores as well as numerous bilingual pairs and multilingual combinations
+- [Documentation](https://api.lexicala.com/documentation/)
+- [Tests](https://rapidapi.com/kdictionaries/api/lexicala1)
+
+### Endpoints
+
+- GET /users/me
+- GET /search
+- returns abridged versions of entries
+- parameters  
+  - source
+  - language
+  - text (i.e. headword)
+  - pos
+  - number
+  - gender
+  - subcategorization
+  - monosemous
+  - polysemous
+  - morph
+  - analyzed
+- GET /search-entries
+- returns full versions of entries
+- parameters  
+  - source
+  - language
+  - text (i.e. headword)
+  - pos
+  - number
+  - gender
+  - subcategorization
+  - monosemous
+  - polysemous
+  - morph
+  - analyzed
+- GET /languages
+- GET /entries
+- parameters  
+  - ID
+- GET /senses
+- parameters  
+  - ID
+  
+- STRUCTURES
+  - Headword Object
+  - Sense Object (within the Senses array)
+  - Compositional Phrases Object (within the Compositional Phrases array)
+  - Examples Object (within the Examples array)
+  - Translations Object
+  - Inflections Object (within the Inflections array)
+  - Pronunciation Object
+  - Alternative Scripts Object
+
+## Language api for Dutch - Frisian
+
+- [Documentation](https://frisian.eu/languageapidocs/query.doc.html)
+
+### Endpoints
+
+- lemmasearch
+  - search for lemmas (lucene syntax), return a paginated graph with lemmas  
+  - parameters
+  - offset
+  - max
+  - searchterm
+  - lang
+  - pos
+  - source
+  - sensitive
+  - lexiconFallback
+- textsearch
+  - search in text (lucene syntax), return a paginated graph with texts
+  - parameters
+  - offset
+  - max
+  - searchterm
+  - lang
+  - source
+  - sensitive
+- translatetext
+  - translate text
+  - parameters
+  - text
+  - lang
+
+## [TEI Lex-0 Dictionaries API for TEI Publisher](https://eldi.soc.cas.cz/api.html)
+
+- [Documentation](https://eldi.soc.cas.cz/api.html)
+- [OpenApi](https://eldi.soc.cas.cz/modules/custom-api.json)
+- [Local OpenApi](Resources/TEI-Lex-0.json)
+
+### Endpoints
+
+- GET /api/lex/browse
+  - Browse through TEI Publisher collections
+  - parameters
+    - id (string)
+    - chapter (string)
+    - field (string: headword|entry [headword])
+    - position (string: exactly|start|end|everywhere)
+    - start (integer [1])
+    - per-page (integer [20])
+    - highlight (boolean)
+    - format (string: html|xml [html])
+- GET /api/lex/contents
+  - Shows contents of a dictionary
+  - parameters
+    - id (string)
+    - chapter (string)
+    - format (string: html|xml [html])
+- GET /api/lex/dictionaries
+  - Browse through collection of dictionaries
+  - parameters
+    - dictionary-parts (array: header|text|front|body|back [header])
+    - start (integer [1])
+    - per-page (integer [20])
+    - format (string: html|xml [html])
+- GET /api/lex/dictionaries/{id}/contents
+  - Shows contents of a dictionary
+  - parameters
+    - id (string)
+    - chapter (string)
+    - format (string: html|xml [html])
+- GET /api/lex/dictionaries/{id}/entries
+  - Browse through collection of entries within a dictionary
+  - parameters
+    - id (string)
+    - format (string: html|xml [html])
+    - start (integer [1])
+    - per-page (integer [20])
+- GET /api/lex/dictionaries/{id}/entries/{entry-id}
+  - Get dictionary entry
+  - parameters
+    - id (string)
+    - entry-id (string)
+    - format (string: html|xml [html])
+    - start (integer [1])
+    - per-page (integer [20])
+- GET /api/lex/dictionaries/{id}/entries/{entry-id}/comments
+  - Get comments for dictionary entry
+  - parameters
+    - id (string)
+    - entry-id (string)
+    - format (string: html|xml [html])
+- GET /api/lex/domains/{format}
+  - List domains, semantic categories
+  - parameters
+    - format (string: xml|html|json)
+    - query (string)
+    - idno (string)
+    - limit (integer)
+- GET /api/lex/project
+  - Get detailed information about current project
+  - parameters
+    - format (string: xml|json [xml])
+- GET /api/lex/search
+  - Run a search on all TEI Publisher collections
+  - parameters
+    - ids (array)
+    - field[1] (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+    - field[2] (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+    - field[3] (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+    - query-advanced[1] (string)
+    - query-advanced[2] (string)
+    - query-advanced[3] (string)
+    - position[1] (string: exactly|start|end|everywhere)
+    - position[2] (string: exactly|start|end|everywhere)
+    - position[3] (string: exactly|start|end|everywhere)
+    - condition[1] (string: and|not|andNot)
+    - condition[2] (string: and|not|andNot)
+    - condition[3] (string: and|not|andNot)
+    - facet (object)
+    - query (string)
+    - field (string: headword|entry [headword])
+    - position (string: exactly|start|end|everywhere)
+    - start (integer [1])
+    - per-page (integer [20])
+    - highlight (boolean)
+    - format (string: html|xml [html])
+- GET /api/lex/search/autocomplete
+  - List possible completions
+  - parameters
+    - ids (array)
+    - query (string)
+    - field (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+- GET /api/lex/search/facets
+  - List facets
+  - parameters
+    - ids (array)
+    - field[1] (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+    - field[2] (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+    - field[3] (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+    - query-advanced[1] (string)
+    - query-advanced[2] (string)
+    - query-advanced[3] (string)
+    - position[1] (string: exactly|start|end|everywhere)
+    - position[2] (string: exactly|start|end|everywhere)
+    - position[3] (string: exactly|start|end|everywhere)
+    - condition[1] (string: and|not|andNot)
+    - condition[2] (string: and|not|andNot)
+    - condition[3] (string: and|not|andNot)
+    - facet (object)
+    - query (string)
+    - field (string: headword|entry [headword])
+    - format (string: html|xml [html])
+- GET /api/lex/version
+  - Get version of the current API
+  - parameters
+    - format (string: xml|json [xml])
+
+## [Oxford Dictionaries](https://developer.oxforddictionaries.com)
+
+- [Documentation](https://developer.oxforddictionaries.com/documentation)
+- [OpenApi](https://developer.oxforddictionaries.com/swagger/spec/od_api_demo_v2.json)
+- [Local OpenApi](Resources/Oxford-Dictionaries_v2.json)
+
+### Endpoints
+
+- GET /fields
+  - Lists available fields
+  - parameters
+    - app_id(string)
+    - app_key(string)
+- GET /grammaticalFeatures/{source_lang}
+  - Lists available grammatical features in a monolingual dataset
+  - parameters
+    - source_lang()
+    - app_id(string)
+    - app_key(string)
+- GET /search/thesaurus/{source_lang}
+  - Retrieves possible dictionary matches to an input string
+  - parameters
+    - source_lang()
+    - q()
+    - prefix()
+    - limit()
+    - offset()
+    - app_id(string)
+    - app_key(string)
+- GET /search/translations/{source_lang_search}/{target_lang_search}
+  - Retrieves possible headwords with translations
+  - parameters
+    - source_lang_search()
+    - target_lang_search()
+    - q()
+    - prefix()
+    - limit()
+    - offset()
+    - app_id(string)
+    - app_key(string)
+- GET /filters/{endpoint}
+  - Lists available filters for specific endpoint
+  - parameters
+    - endpoint()
+    - app_id(string)
+    - app_key(string)
+- GET /registers/{source_lang_registers}/{target_lang_registers}
+  - Lists available registers in a bilingual dataset
+  - parameters
+    - source_lang_registers()
+    - target_lang_registers()
+    - app_id(string)
+    - app_key(string)
+- GET /search/{source_lang}
+  - Retrieves possible dictionary matches to an input string
+  - parameters
+    - source_lang()
+    - q()
+    - prefix()
+    - limit()
+    - offset()
+    - app_id(string)
+    - app_key(string)
+- GET /sentences/{source_lang}/{word_id}
+  - Retrieve real example sentences of a word in use
+  - parameters
+    - source_lang()
+    - word_id()
+    - strictMatch(boolean)
+    - app_id(string)
+    - app_key(string)
+- GET /grammaticalFeatures/{source_lang_grammatical}/{target_lang_grammatical}
+  - Lists available grammatical features in a bilingual dataset
+  - parameters
+    - source_lang_grammatical()
+    - target_lang_grammatical()
+    - app_id(string)
+    - app_key(string)
+- GET /filters
+  - Lists available filters
+  - parameters
+    - app_id(string)
+    - app_key(string)
+- GET /lexicalCategories/{source_lang}
+  - Lists available lexical categories in a monolingual dataset
+  - parameters
+    - source_lang()
+    - app_id(string)
+    - app_key(string)
+- GET /lexicalCategories/{source_lang_lexical}/{target_lang_lexical}
+  - Lists available lexical categories in a bilingual dataset
+  - parameters
+    - source_lang_lexical()
+    - target_lang_lexical()
+    - app_id(string)
+    - app_key(string)
+- GET /domains/{source_lang_domains}/{target_lang_domains}
+  - Lists available domains in a bilingual dataset
+  - parameters
+    - source_lang_domains()
+    - target_lang_domains()
+    - app_id(string)
+    - app_key(string)
+- GET /thesaurus/{source_lang}/{word_id}
+  - Retrieve words that are similar to a given word
+  - parameters
+    - source_lang()
+    - word_id()
+    - fields(array)
+    - strictMatch(boolean)
+    - app_id(string)
+    - app_key(string)
+- GET /entries/{source_lang}/{word_id}
+  - Retrieve dictionary information for a given word
+  - parameters
+    - source_lang()
+    - word_id()
+    - fields(array)
+    - grammaticalFeatures(string)
+    - lexicalCategory(string)
+    - domains(string)
+    - registers(string)
+    - strictMatch(boolean)
+    - app_id(string)
+    - app_key(string)
+- GET /languages
+  - Returns the names of Dictionaries in the API
+  - parameters
+    - sourceLanguage()
+    - targetLanguage()
+    - app_id(string)
+    - app_key(string)
+- GET /registers/{source_lang}
+  - Lists available registers in a  monolingual dataset
+  - parameters
+    - source_lang()
+    - app_id(string)
+    - app_key(string)
+- GET /lemmas/{source_lang}/{word_id}
+  - Check a word exists in the dictionary and retrieve its root form
+  - parameters
+    - source_lang()
+    - word_id()
+    - grammaticalFeatures(string)
+    - lexicalCategory(string)
+    - app_id(string)
+    - app_key(string)
+- GET /translations/{source_lang_translate}/{target_lang_translate}/{word_id}
+  - Retrieve translations for a given word
+  - parameters
+    - source_lang_translate()
+    - target_lang_translate()
+    - word_id()
+    - strictMatch(boolean)
+    - fields(array)
+    - grammaticalFeatures(string)
+    - lexicalCategory(string)
+    - domains(string)
+    - registers(string)
+    - app_id(string)
+    - app_key(string)
+- GET /words/{source_lang}
+  - Check if an inflected form exists in the dictionary and retrieve the entries data of its root form.
+  - parameters
+    - source_lang()
+    - q()
+    - fields(array)
+    - grammaticalFeatures(string)
+    - lexicalCategory(string)
+    - domains(string)
+    - registers(string)
+    - app_id(string)
+    - app_key(string)
+- GET /domains/{source_lang}
+  - Lists available domains in a monolingual dataset
+  - parameters
+    - source_lang()
+    - app_id(string)
+    - app_key(string)
+- GET /fields/{endpoint}
+  - Lists available fields for specific endpoint
+  - parameters
+    - endpoint()
+    - app_id(string)
+    - app_key(string)
+- GET /inflections/{source_lang}/{word_id}
+  - Retrieves the inflected forms of a given word.
+  - parameters
+    - source_lang()
+    - word_id()
+    - strictMatch(boolean)
+    - app_id(string)
+    - app_key(string)
+
+## [Oxford Learner's Dictionaries](https://languages.oup.com)
+
+- [Documentation](https://www.oxfordlearnersdictionaries.com/api/v1/documentation/html)
+- [Local Documentation](Resources/Oxford-Learners-Dictionaries.html)
+
+## [Cmbridge Dictionary](https://dictionary.cambridge.org)
+
+- [Documentation](https://dictionary-api.cambridge.org/api/specification)
+- [Local Documentation](Resources/Cambridge-Dictionaries-API.html)
+
+## [PONS](https://en.pons.com)
+
+- [Documentation](https://de.pons.com/p/files/uploads/pons/api/api-documentation.pdf)
+- [Local Documentation](Resources/PONS-API.pdf)
+
+## [Merriam Webster](https://www.merriam-webster.com)
+
+- [Documentation](https://dictionaryapi.com)
+- MERRIAM-WEBSTER'S COLLEGIATE® DICTIONARY WITH AUDIO [documentation](https://dictionaryapi.com/products/api-collegiate-dictionary)
+
+### Endpoints
+
+- GET json/{word}?key={your-api-key}
+
+## [ABBYY](https://developers.lingvolive.com/en-us)
+
+- [Documentation](https://developers.lingvolive.com/en-us/Help)
+
+### Endpoints
+
+- GET Translation
+  - parameters
+    - text
+    - srcLang
+    - dstLang
+    - isCaseSensitive
+- GET WordList
+  - parameters
+    - prefix
+    - srcLang
+    - dstLang
+    - pageSize
+    - startPos
+- GET Minicard
+  - parameters
+    - text
+    - srcLang
+    - dstLang
+- GET Search
+  - parameters
+    - text
+    - srcLang
+    - dstLang
+    - searchZone (Heading|Translation|Example|AutoSearch|Comment|All)
+    - startIndex
+    - pageSize
+- GET Article
+  - parameters
+    - heading (Article heading)
+    - dict
+    - srcLang
+    - dstLang
+- GET Suggests
+  - parameters
+    - text
+    - srcLang
+    - dstLang
+- GET WordForms
+  - parameters
+    - text
+    - lang
+- GET Sound
+  - parameters
+    - dictionaryName
+    - fileName

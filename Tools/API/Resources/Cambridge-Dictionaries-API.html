@@ -1,0 +1,2006 @@
+
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.wapforum.org/DTD/xhtml-mobile12.dtd">
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+
+<meta charset="utf-8">
+<title>Cambridge Dictionaries Online API Developer Hub</title>
+
+<meta name="viewport" content="width=device-width" user-scalable="yes" initial-scale="1.0" /> 
+<meta name="HandheldFriendly" content="true" /> 
+<meta name="author" content="Believe Creative, info@believecreative.com">
+<meta name="web_author" content="Believe Creative, info@believecreative.com">
+<meta name="designer" content="http://www.believecreative.com">
+<base href="https://dictionary-api.cambridge.org/api/specification" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="cambridge, university, press, dictionary, dictionaries, online, API, developer, data, license, hub, CDO, spelling, thesaurus, demo, sandbox" />
+<meta name="author" content="Super User" />
+<meta name="description" content="Cambridge Dictionaries Online Data Licensing Hub" />
+<meta name="generator" content="Joomla! - Open Source Content Management" />
+<title>Specification</title>
+<link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<link href="/components/com_jcomments/tpl/default/style.css?v=3002" rel="stylesheet" type="text/css" />
+<script type="application/json" class="joomla-script-options new">{"csrf.token":"87fcff172876707554ec815620fd6d3b","system.paths":{"root":"","base":""},"system.keepalive":{"interval":840000,"uri":"\/component\/ajax\/?format=json"}}</script>
+<script src="/media/jui/js/jquery.min.js?f8a468bea8b425e758bffbbd2dd6bc49" type="text/javascript"></script>
+<script src="/media/jui/js/jquery-noconflict.js?f8a468bea8b425e758bffbbd2dd6bc49" type="text/javascript"></script>
+<script src="/media/jui/js/jquery-migrate.min.js?f8a468bea8b425e758bffbbd2dd6bc49" type="text/javascript"></script>
+<script src="/media/system/js/caption.js?f8a468bea8b425e758bffbbd2dd6bc49" type="text/javascript"></script>
+<script src="/media/system/js/mootools-core.js?f8a468bea8b425e758bffbbd2dd6bc49" type="text/javascript"></script>
+<script src="/media/system/js/core.js?f8a468bea8b425e758bffbbd2dd6bc49" type="text/javascript"></script>
+<script src="/media/system/js/mootools-more.js?f8a468bea8b425e758bffbbd2dd6bc49" type="text/javascript"></script>
+<!--[if lt IE 9]><script src="/media/system/js/polyfill.event.js?f8a468bea8b425e758bffbbd2dd6bc49" type="text/javascript"></script><![endif]-->
+<script src="/media/system/js/keepalive.js?f8a468bea8b425e758bffbbd2dd6bc49" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+	</script>
+<!--[if lte IE 6]>
+    <link href="/templates/cdoapi/css/ieonly.css" rel="stylesheet" type="text/css" />
+
+        <style type="text/css">
+    #line
+    {      width:98% ;
+    }
+    .logoheader
+    {
+            height:200px;
+
+    }
+    #header ul.menu
+    {
+    display:block !important;
+          width:98.2% ;
+    }
+     </style>
+        <![endif]-->
+<!--[if IE 7]>
+    <link href="/templates/cdoapi/css/ie7only.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+<script type="text/javascript" src="/templates/cdoapi/javascript/hide.js"></script>
+<script type="text/javascript">
+  var big ='72%';
+  var small='53%';
+  var altopen='is open';
+  var altclose='is closed';
+  var bildauf='/templates/cdoapi/images/plus.png';
+  var bildzu='/templates/cdoapi/images/minus.png';
+  var rightopen='Open info';
+  var rightclose='Close info';
+  var fontSizeTitle='Font size';
+  var bigger='Bigger';
+  var reset='Reset';
+  var smaller='Smaller';
+  var biggerTitle='Increase size';
+  var resetTitle='Revert styles to default';
+  var smallerTitle='Decrease size';
+</script>
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+<!--[if lt IE 9]> 
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script> 
+  <![endif]-->
+<link rel="stylesheet" href="/templates/cdoapi/stylesheets/base.css" type="text/css">
+<link rel="stylesheet" href="/templates/cdoapi/stylesheets/skeleton.css" type="text/css">
+<link rel="stylesheet" href="/templates/cdoapi/stylesheets/layout.css?ver=1.1" type="text/css">
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+<style type="text/css">
+/* ##################################################################
+                                      STICKY FOOTER
+                    ..............................*/
+html, body {
+  height:100%;
+}
+.container {
+  min-height: 100%;
+}
+#wrapper {
+  padding-bottom:116px;
+}
+#footer {
+  margin-top:-116px;
+  clear:both;
+}
+/* ##################################################################
+                                      STICKY FOOTER
+                    ..............................*/                    
+</style>
+<link rel="stylesheet" href="/templates/cdoapi/stylesheets/base/jquery.ui.core.css?ver=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script src="/templates/cdoapi/javascript/ui/jquery.ui.core.js"></script>
+<script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      autoHeight: false,
+      navigation: true
+    });
+  });
+  </script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(
+     ['_setAccount', 'UA-31338015-2'],
+     ['_trackPageview'],
+     ['b._setAccount', 'UA-8600104-1'],
+     ['b._trackPageview']
+  );
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body id="specification">
+
+<div class="container">
+<div id="wrapper">
+
+<div id="header">
+<div class="header_inner">
+<h1 class="unseen">Logo</h1>
+<h1><a href="http://dictionary.cambridge.org/" title="Cambridge Dictionaries Online" target="_blank"><img src="/images/logo.png" alt="Cambridge Dictionaries Online API Developer Hub" title="Cambridge Dictionaries Online API Developer Hub" /></a></h1>
+<h3></h3>
+<h2><img src="/images/logo_apidev.png" alt="Cambridge Dictionaries Online API Developer Hub" title="Cambridge Dictionaries Online API Developer Hub" /></h2>
+<div class="login_box">
+<form action="/api/specification" method="post" id="login-form">
+<div class="log_cont">
+<div class="login_txt">Login</div>
+<div class="reg_txt"><a href="/registration"> Register</a></div>
+<div style="clear:both;"></div>
+</div>
+<div class="field_holder">
+<fieldset class="userdata">
+<div id="form-login-username">
+<input autocomplete="off" id="modlgn-username" type="text" name="username" class="inputbox" size="18" value="Username" onfocus="if(this.value=='Username'){this.value=''};" onblur="if(this.value==''){this.value='Username'};" />
+</div>
+<div id="form-login-password">
+<input autocomplete="off" id="modlgn-passwd" type="password" name="password" class="inputbox" size="18" value="Password" onfocus="if(this.value=='Password'){this.value=''};" onblur="if(this.value==''){this.value='Password'};" />
+</div>
+<input type="hidden" name="87fcff172876707554ec815620fd6d3b" value="1" /> </fieldset>
+<div style="clear:both"></div>
+</div>
+<div class="forgotpass_block">
+<div id="user_config">
+<ul>
+<li> <a href="/forgot-password"> Forgot password?</a> </li>
+</ul>
+</div>
+<div id="form-login-button">
+<input type="submit" name="Submit" class="button" value="Log in" />
+<input type="hidden" name="option" value="com_users" />
+<input type="hidden" name="task" value="user.login" />
+<input type="hidden" name="return" value="aW5kZXgucGhwP0l0ZW1pZD01MzY=" />
+</div>
+<div style="clear:both"></div>
+</div>
+</form>
+</div>
+<div class="clear"></div>
+<div class="mobile_loginbox"><a href="http://cdo-api-cambridge.org/component/users/?view=login" title="Click here to Login">Login</a> <a href="/registration" title="Click here to Register">Register</a></div>
+</div>
+</div>
+
+
+<div id="navigation">
+<h3 class="unseen">Navigation</h3>
+<nav id="main-nav">
+<ul class="nav menu mod-list">
+<li class="item-435 default"><a href="/" title="Home">Home</a></li><li class="item-622"><a href="/apply">Apply</a></li><li class="item-621"><a href="/registration">Registration</a></li><li class="item-448 active deeper parent"><a href="/api/about" title="API">API</a><ul class="nav-child unstyled small"><li class="item-597"><a href="/api/about">About</a></li><li class="item-294"><a href="/api/demo" title="Demo">Demo</a></li><li class="item-497"><a href="/api/faq" title="FAQ">FAQ</a></li><li class="item-498 current active"><a href="/api/specification" title="Specification">Specification</a></li><li class="item-518"><a href="/api/terms-and-conditions" title="Terms and Conditions">Terms and Conditions</a></li><li class="item-536"><a href="/api/resources">Resources</a></li></ul></li></ul>
+</nav>
+<div class="press"><a href="http://www.cambridge.org/" target="_blank" title="Cambridge University Press">Cambridge University Press</a></div>
+<div class="clear"></div>
+</div>
+
+
+
+
+<div id="main_content">
+<h3 class="unseen">Content</h3>
+<div class="nine alpha columns">
+<div id="system-message-container">
+</div>
+<div class="item-page specification" itemscope itemtype="https://schema.org/Article">
+<meta itemprop="inLanguage" content="en-GB" />
+<div itemprop="articleBody">
+<h1>Specification</h1>
+<p>This is the full specification of the API, each method with its required input parameters and possible responses.</p>
+<p>The API key should be sent in the header of the HTTP request as the accessKey value.</p>
+<p>Note also that you can try out all the methods and see the responses on our <a title="demo page" href="/api/demo">demo page</a>.</p>
+<div class="method">
+<h3 id="getDictionaries" class="methodName">getDictionaries</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries</pre>
+<div class="desc">Retrieves a list of dictionaries and information about each.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<div class="desc">Information relating to a single dictionary.</div>
+<ul class="contains array">
+<ul class="contains hash"> 
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>dictionaryName</strong> <span class="contains string">[STRING]</span>
+<div class="desc">User-facing name of the dictionary dataset.</div>
+</li>
+<li><strong>dictionaryUrl</strong> <span class="contains string">[STRING]</span>
+<div class="desc">Canonical URL corresponding to a description of the dataset on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</ul>
+</div>
+<pre class="xml">&lt;dictionaries&gt;
+&lt;dictionary&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;dictionaryName&gt;[STRING]&lt;/dictionaryName&gt;
+&lt;dictionaryUrl&gt;[STRING]&lt;/dictionaryUrl&gt;
+&lt;/dictionary&gt;
+&lt;/dictionaries&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getDictionary" class="methodName">getDictionary</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}</pre>
+<div class="desc">Retrieves information about a specific dictionary.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<div class="desc">Information relating to a single dictionary.</div>
+<ul class="contains hash">
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>dictionaryName</strong> <span class="contains string">[STRING]</span>
+<div class="desc">User-facing name of the dictionary dataset.</div>
+</li>
+<li><strong>dictionaryUrl</strong> <span class="contains string">[STRING]</span>
+<div class="desc">Canonical URL corresponding to a description of the dataset on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;dictionary&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;dictionaryName&gt;[STRING]&lt;/dictionaryName&gt;
+&lt;dictionaryUrl&gt;[STRING]&lt;/dictionaryUrl&gt;
+&lt;/dictionary&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getEntries" class="methodName">getEntries</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/entries</pre>
+<div class="desc">This feature not implemented in API v1.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json"> </div>
+<pre class="xml">&lt;entries&gt;
+&lt;/entries&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getEntry" class="methodName">getEntry</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/entries/{entryId}</pre>
+<div class="desc">Retrieves the full entry for a given entryId.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+<li><strong>format</strong> <span class="contains string">[STRING]</span> <span class="requestType">Parameter</span>
+<div class="desc">Format of entries to be returned. <code>xml</code> or <code>html</code>.</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<div class="desc">Full information on a dictionary entry.</div>
+<ul class="contains hash">
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>entryContent</strong> <span class="contains string">[STRING]</span>
+<div class="desc">The actual content of an entry, in XML or HTML5, according to the format selected. See the XML dtd for details.</div>
+</li>
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>entryLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the entry. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>entryUrl</strong> <span class="contains string">[URL]</span>
+<div class="desc">The canonical URL of the entry on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+<li><strong>format</strong> <span class="contains string">[STRING]</span>
+<div class="desc">Format of entry content returned. <code>xml</code> or <code>html</code>.</div>
+</li>
+<li><strong>topics</strong>
+<ul class="contains array">
+<ul class="contains hash">
+<li><strong>topicId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the individual topic. The <a href="#getTopic">getTopic</a> method provides complete information about a topic.</div>
+</li>
+<li><strong>topicLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the topic. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>topicParentId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the parent of the topic.</div>
+</li>
+<li><strong>topicUrl</strong> <span class="contains string">[STRING]</span>
+<div class="desc">The canonical URL of the topic on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</ul>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;entry&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;entryContent&gt;[STRING]&lt;/entryContent&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;entryLabel&gt;[STRING]&lt;/entryLabel&gt;
+&lt;entryUrl&gt;[URL]&lt;/entryUrl&gt;
+&lt;format&gt;[STRING]&lt;/format&gt;
+&lt;topics&gt;
+&lt;topic&gt;
+&lt;topicId&gt;[IDSTRING]&lt;/topicId&gt;
+&lt;topicLabel&gt;[STRING]&lt;/topicLabel&gt;
+&lt;topicParentId&gt;[IDSTRING]&lt;/topicParentId&gt;
+&lt;topicUrl&gt;[STRING]&lt;/topicUrl&gt;
+&lt;/topic&gt;
+&lt;/topics&gt;
+&lt;/entry&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Entry)</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidEntryId</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Entry '{entryId}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidEntryId&lt;/errorCode&gt;
+&lt;errorMessage&gt;Entry '{entryId}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getNearbyEntries" class="methodName">getNearbyEntries</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/entries/{entryId}/nearbyentries</pre>
+<div class="desc">Finds the preceding and following entries in the current dictionary dataset for a given entryId.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+<li><strong>entrynumber</strong> <span class="contains string">[INT]</span> <span class="requestType">Parameter</span>
+<div class="desc">Number of items to be shown.</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>nearbyFollowingEntries</strong>
+<ul class="contains array">
+<ul class="contains hash">
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>entryLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the entry. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>entryUrl</strong> <span class="contains string">[URL]</span>
+<div class="desc">The canonical URL of the entry on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</ul>
+</li>
+<li><strong>nearbyPrecedingEntries</strong>
+<ul class="contains array">
+<ul class="contains hash">
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>entryLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the entry. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>entryUrl</strong> <span class="contains string">[URL]</span>
+<div class="desc">The canonical URL of the entry on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</ul>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;entry&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;nearbyFollowingEntries&gt;
+&lt;nearbyFollowingEntry&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;entryLabel&gt;[STRING]&lt;/entryLabel&gt;
+&lt;entryUrl&gt;[URL]&lt;/entryUrl&gt;
+&lt;/nearbyFollowingEntry&gt;
+&lt;/nearbyFollowingEntries&gt;
+&lt;nearbyPrecedingEntries&gt;
+&lt;nearbyPrecedingEntry&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;entryLabel&gt;[STRING]&lt;/entryLabel&gt;
+&lt;entryUrl&gt;[URL]&lt;/entryUrl&gt;
+&lt;/nearbyPrecedingEntry&gt;
+&lt;/nearbyPrecedingEntries&gt;
+&lt;/entry&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Entry)</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidEntryId</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Entry '{entryId}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidEntryId&lt;/errorCode&gt;
+&lt;errorMessage&gt;Entry '{entryId}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getEntryPronunciations" class="methodName">getEntryPronunciations</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/entries/{entryId}/pronunciations</pre>
+<div class="desc">Gets audio pronunciations associated with the entry.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+<li><strong>format</strong> <span class="contains string">[STRING]</span> <span class="requestType">URL; Default: <code>mp3</code></span>
+<div class="desc"><code>mp3</code> or <code>ogg</code></div>
+</li>
+<li><strong>lang</strong> <span class="contains string">[STRING]</span> <span class="requestType">URL; Default: <code>[empty]</code></span>
+<div class="desc"><code>uk</code> or <code>us</code>. If left blank, gets both.</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<ul class="contains array">
+<ul class="contains hash">
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>lang</strong> <span class="contains string">[STRING]</span>
+<div class="desc">Language variant of pronunciation. <code>uk</code> or <code>us</code>.</div>
+</li>
+<li><strong>pronunciationUrl</strong> <span class="contains string">[URL]</span>
+<div class="desc">The URL of the audio pronunciation.</div>
+</li>
+</ul>
+</ul>
+</div>
+<pre class="xml">&lt;pronunciations&gt;
+&lt;pronunciation&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;lang&gt;[STRING]&lt;/lang&gt;
+&lt;pronunciationUrl&gt;[URL]&lt;/pronunciationUrl&gt;
+&lt;/pronunciation&gt;
+&lt;/pronunciations&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Entry)</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidEntryId</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Entry '{entryId}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidEntryId&lt;/errorCode&gt;
+&lt;errorMessage&gt;Entry '{entryId}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getRelatedEntries" class="methodName">getRelatedEntries</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/entries/{entryId}/relatedentries</pre>
+<div class="desc">Finds entries describing the same word/meaning in other dictionary datasets.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[INT]</span> <span class="requestType">URL</span>
+<div class="desc">Unique id of the entry in question.</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>relatedEntries</strong>
+<ul class="contains array">
+<ul class="contains hash">
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>entryLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the entry. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>entryUrl</strong> <span class="contains string">[URL]</span>
+<div class="desc">The canonical URL of the entry on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</ul>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;entry&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;relatedEntries&gt;
+&lt;relatedEntry&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;entryLabel&gt;[STRING]&lt;/entryLabel&gt;
+&lt;entryUrl&gt;[URL]&lt;/entryUrl&gt;
+&lt;/relatedEntry&gt;
+&lt;/relatedEntries&gt;
+&lt;/entry&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Entry)</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidEntryId</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Entry '{entryId}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidEntryId&lt;/errorCode&gt;
+&lt;errorMessage&gt;Entry '{entryId}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="search" class="methodName">search</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/search</pre>
+<div class="desc">Performs a search for a word or phrase in a particular dictionary.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+<li><strong>pageindex</strong> <span class="contains string">[INT]</span> <span class="requestType">Parameter; Default: <code>1</code></span>
+<div class="desc">The index (offset) of the page to be shown.</div>
+</li>
+<li><strong>pagesize</strong> <span class="contains string">[INT]</span> <span class="requestType">Parameter; Default: <code>10</code></span>
+<div class="desc">Number of entries to be shown per page.</div>
+</li>
+<li><strong>q</strong> <span class="contains string">[STRING]</span> <span class="requestType">Parameter</span>
+<div class="desc">The string to search for.</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>currentPageIndex</strong> <span class="contains string">[INT]</span>
+<div class="desc">The index (offset) of the current page of results.</div>
+</li>
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>pageNumber</strong> <span class="contains string">[INT]</span>
+<div class="desc">The total number of pages of results found.</div>
+</li>
+<li><strong>resultNumber</strong> <span class="contains string">[INT]</span>
+<div class="desc">The total number of results found.</div>
+</li>
+<li><strong>results</strong>
+<ul class="contains array">
+<ul class="contains hash">
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>entryLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the entry. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>entryUrl</strong> <span class="contains string">[URL]</span>
+<div class="desc">The canonical URL of the entry on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</ul>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;search&gt;
+&lt;currentPageIndex&gt;[INT]&lt;/currentPageIndex&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;pageNumber&gt;[INT]&lt;/pageNumber&gt;
+&lt;resultNumber&gt;[INT]&lt;/resultNumber&gt;
+&lt;results&gt;
+&lt;result&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;entryLabel&gt;[STRING]&lt;/entryLabel&gt;
+&lt;entryUrl&gt;[URL]&lt;/entryUrl&gt;
+&lt;/result&gt;
+&lt;/results&gt;
+&lt;/search&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Page)</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>PageNotFound</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Selected page index not found</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;PageNotFound&lt;/errorCode&gt;
+&lt;errorMessage&gt;Selected page index not found&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="didYouMean" class="methodName">didYouMean</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/search/didyoumean</pre>
+<div class="desc">Returns spelling suggestions for a word, i.e. original and inflected forms which resemble the word entered. Note that this will return suggestions even for words spelled correctly!</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+<li><strong>entrynumber</strong> <span class="contains string">[INT]</span> <span class="requestType">Parameter</span>
+<div class="desc">Number of items to be shown.</div>
+</li>
+<li><strong>q</strong> <span class="contains string">[STRING]</span> <span class="requestType">Parameter</span>
+<div class="desc">The string to search for.</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>searchTerm</strong> <span class="contains string">[STRING]</span>
+<div class="desc">The term that the user has entered. Don't forget this is user-generated and therefore <a href="https://en.wikipedia.org/wiki/Taint_checking">tainted</a>.</div>
+</li>
+<li><strong>suggestions</strong><span class="contains string">[STRING]</span>
+<div class="desc">The suggested new search term.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;didyoumean&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;searchTerm&gt;[STRING]&lt;/searchTerm&gt;
+&lt;suggestions&gt;
+&lt;suggestion&gt;[STRING]&lt;/suggestion&gt;
+&lt;/suggestions&gt;
+&lt;/didyoumean&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="searchFirst" class="methodName">searchFirst</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/search/first</pre>
+<div class="desc">Performs a search for a word or phrase in a particular dictionary, and returns the entry for the first result.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+<li><strong>format</strong> <span class="contains string">[STRING]</span> <span class="requestType">Parameter</span>
+<div class="desc">Format of entries to be returned. <code>xml</code> or <code>html</code>.</div>
+</li>
+<li><strong>q</strong> <span class="contains string">[STRING]</span> <span class="requestType">Parameter</span>
+<div class="desc">The string to search for.</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<div class="desc">Full information on a dictionary entry.</div>
+<ul class="contains hash">
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>entryContent</strong> <span class="contains string">[STRING]</span>
+<div class="desc">The actual content of an entry, in XML or HTML5, according to the format selected. See the XML dtd for details.</div>
+</li>
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>entryLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the entry. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>entryUrl</strong> <span class="contains string">[URL]</span>
+<div class="desc">The canonical URL of the entry on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+<li><strong>format</strong> <span class="contains string">[STRING]</span>
+<div class="desc">Format of entry content returned. <code>xml</code> or <code>html</code>.</div>
+</li>
+<li><strong>topics</strong>
+<ul class="contains array">
+<ul class="contains hash">
+<li><strong>topicId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the individual topic. The <a href="#getTopic">getTopic</a> method provides complete information about a topic.</div>
+</li>
+<li><strong>topicLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the topic. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>topicParentId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the parent of the topic.</div>
+</li>
+<li><strong>topicUrl</strong> <span class="contains string">[STRING]</span>
+<div class="desc">The canonical URL of the topic on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</ul>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;entry&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;entryContent&gt;[STRING]&lt;/entryContent&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;entryLabel&gt;[STRING]&lt;/entryLabel&gt;
+&lt;entryUrl&gt;[URL]&lt;/entryUrl&gt;
+&lt;format&gt;[STRING]&lt;/format&gt;
+&lt;topics&gt;
+&lt;topic&gt;
+&lt;topicId&gt;[IDSTRING]&lt;/topicId&gt;
+&lt;topicLabel&gt;[STRING]&lt;/topicLabel&gt;
+&lt;topicParentId&gt;[IDSTRING]&lt;/topicParentId&gt;
+&lt;topicUrl&gt;[STRING]&lt;/topicUrl&gt;
+&lt;/topic&gt;
+&lt;/topics&gt;
+&lt;/entry&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getTopics" class="methodName">getTopics</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/topics</pre>
+<div class="desc">Get a list of the theasuruses attached to a given dictionary dataset.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json"><span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the thesaurus.</div>
+</div>
+<pre class="xml">&lt;thesaurusList&gt;
+&lt;thesaurusList&gt;[IDSTRING]&lt;/thesaurusList&gt;
+&lt;/thesaurusList&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getThesaurus" class="methodName">getThesaurus</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/topics/{thesaurusName}</pre>
+<div class="desc">Get information about a particular thesaurus.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+<li><strong>thesaurusName</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Unique id of the thesaurus, found from the <a href="#getTopics">getTopics</a> method.</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json"> </div>
+<pre class="xml">&lt;topics&gt;
+&lt;/topics&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Thesaurus)</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidThesaurus</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Thesaurus '{thesaurusId}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidThesaurus&lt;/errorCode&gt;
+&lt;errorMessage&gt;Thesaurus '{thesaurusId}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getTopic" class="methodName">getTopic</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/topics/{thesaurusName}/{topicId}</pre>
+<div class="desc">Get information about a particular thesaurus topic.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+<li><strong>thesaurusName</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Unique id of the thesaurus, found from the <a href="#getTopics">getTopics</a> method.</div>
+</li>
+<li><strong>topicId</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Unique id of the individual topic.</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>entries</strong>
+<ul class="contains array">
+<ul class="contains hash">
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>entryLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the entry. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>entryUrl</strong> <span class="contains string">[URL]</span>
+<div class="desc">The canonical URL of the entry on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</ul>
+</li>
+<li><strong>subTopics</strong>
+<ul class="contains array">
+<ul class="contains hash">
+<li><strong>topicId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the individual topic. The <a href="#getTopic">getTopic</a> method provides complete information about a topic.</div>
+</li>
+<li><strong>topicLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the topic. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>topicParentId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the parent of the topic.</div>
+</li>
+<li><strong>topicUrl</strong> <span class="contains string">[STRING]</span>
+<div class="desc">The canonical URL of the topic on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</ul>
+</li>
+<li><strong>topicId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the individual topic. The <a href="#getTopic">getTopic</a> method provides complete information about a topic.</div>
+</li>
+<li><strong>topicLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the topic. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>topicParentId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the parent of the topic.</div>
+</li>
+<li><strong>topicUrl</strong> <span class="contains string">[STRING]</span>
+<div class="desc">The canonical URL of the topic on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;topic&gt;
+&lt;entries&gt;
+&lt;entry&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;entryLabel&gt;[STRING]&lt;/entryLabel&gt;
+&lt;entryUrl&gt;[URL]&lt;/entryUrl&gt;
+&lt;/entry&gt;
+&lt;/entries&gt;
+&lt;subTopics&gt;
+&lt;subTopic&gt;
+&lt;topicId&gt;[IDSTRING]&lt;/topicId&gt;
+&lt;topicLabel&gt;[STRING]&lt;/topicLabel&gt;
+&lt;topicParentId&gt;[IDSTRING]&lt;/topicParentId&gt;
+&lt;topicUrl&gt;[STRING]&lt;/topicUrl&gt;
+&lt;/subTopic&gt;
+&lt;/subTopics&gt;
+&lt;topicId&gt;[IDSTRING]&lt;/topicId&gt;
+&lt;topicLabel&gt;[STRING]&lt;/topicLabel&gt;
+&lt;topicParentId&gt;[IDSTRING]&lt;/topicParentId&gt;
+&lt;topicUrl&gt;[STRING]&lt;/topicUrl&gt;
+&lt;/topic&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Thesaurus)</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidThesaurus</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Thesaurus '{thesaurusId}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidThesaurus&lt;/errorCode&gt;
+&lt;errorMessage&gt;Thesaurus '{thesaurusId}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid TopicId)</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidTopicId</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Topic '{topicId}' not found in {dictionaryCode}.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidTopicId&lt;/errorCode&gt;
+&lt;errorMessage&gt;Topic '{topicId}' not found in {dictionaryCode}.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getDictionaryWordOfTheDay" class="methodName">getDictionaryWordOfTheDay</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/wordoftheday</pre>
+<div class="desc">Retrieves the full entry which is the word of the day for a particular dictionary dataset. NB: We do not use dataset-specific WOTD, use <a href="#getWordOfTheDay">getWordOfTheDay</a> instead.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>day</strong> <span class="contains string">[DATE: YYYY-MM-DD]</span> <span class="requestType">Parameter; Default: today's date</span>
+<div class="desc">The day for which you want to get the word of the day</div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+<li><strong>format</strong> <span class="contains string">[STRING]</span> <span class="requestType">Parameter</span>
+<div class="desc">Format of entries to be returned. <code>xml</code> or <code>html</code>.</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>entryContent</strong> <span class="contains string">[STRING]</span>
+<div class="desc">The actual content of an entry, in XML or HTML5, according to the format selected. See the XML dtd for details.</div>
+</li>
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>entryLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the entry. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>entryUrl</strong> <span class="contains string">[URL]</span>
+<div class="desc">The canonical URL of the entry on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+<li><strong>format</strong> <span class="contains string">[STRING]</span>
+<div class="desc">Format of entry content returned. <code>xml</code> or <code>html</code>.</div>
+</li>
+<li><strong>topics</strong>
+<ul class="contains array">
+<ul class="contains hash">
+<li><strong>topicId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the individual topic. The <a href="#getTopic">getTopic</a> method provides complete information about a topic.</div>
+</li>
+<li><strong>topicLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the topic. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>topicParentId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the parent of the topic.</div>
+</li>
+<li><strong>topicUrl</strong> <span class="contains string">[STRING]</span>
+<div class="desc">The canonical URL of the topic on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</ul>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;entry&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;entryContent&gt;[STRING]&lt;/entryContent&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;entryLabel&gt;[STRING]&lt;/entryLabel&gt;
+&lt;entryUrl&gt;[URL]&lt;/entryUrl&gt;
+&lt;format&gt;[STRING]&lt;/format&gt;
+&lt;topics&gt;
+&lt;topic&gt;
+&lt;topicId&gt;[IDSTRING]&lt;/topicId&gt;
+&lt;topicLabel&gt;[STRING]&lt;/topicLabel&gt;
+&lt;topicParentId&gt;[IDSTRING]&lt;/topicParentId&gt;
+&lt;topicUrl&gt;[STRING]&lt;/topicUrl&gt;
+&lt;/topic&gt;
+&lt;/topics&gt;
+&lt;/entry&gt;</pre>
+</div>
+<div class="response response400">
+<h5 class="responseCode">Response 400 (Invalid Date)</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDate</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Requested date is invalid.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDate&lt;/errorCode&gt;
+&lt;errorMessage&gt;Requested date is invalid.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getDictionaryWordOfTheDayPreview" class="methodName">getDictionaryWordOfTheDayPreview</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/dictionaries/{dictCode}/wordoftheday/preview</pre>
+<div class="desc">Retrieves a preview of the Word of the Day for a particular dictionary dataset. NB: We do not use dataset-specific WOTD, use <a href="#getWordOfTheDayPreview">getWordOfTheDayPreview</a> instead.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>day</strong> <span class="contains string">[DATE: YYYY-MM-DD]</span> <span class="requestType">Parameter; Default: today's date</span>
+<div class="desc">The day for which you want to get the word of the day</div>
+</li>
+<li><strong>dictCode</strong> <span class="contains string">[IDSTRING]</span> <span class="requestType">URL</span>
+<div class="desc">Dictionary code, which can be found from the <a href="#getDictionaries">getDictionaries</a> method</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>entryLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the entry. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>entryUrl</strong> <span class="contains string">[URL]</span>
+<div class="desc">The canonical URL of the entry on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+<li><strong>format</strong> <span class="contains string">[STRING]</span>
+<div class="desc">Format of entry content returned. <code>xml</code> or <code>html</code>.</div>
+</li>
+<li><strong>htmlEntryPreview</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A preview of the entry, in HTML, suitable for teasers, etc.</div>
+</li>
+<li><strong>textEntryPreview</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A preview of the entry, in plain text, suitable for teasers, etc.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;entry&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;entryLabel&gt;[STRING]&lt;/entryLabel&gt;
+&lt;entryUrl&gt;[URL]&lt;/entryUrl&gt;
+&lt;format&gt;[STRING]&lt;/format&gt;
+&lt;htmlEntryPreview&gt;[STRING]&lt;/htmlEntryPreview&gt;
+&lt;textEntryPreview&gt;[STRING]&lt;/textEntryPreview&gt;
+&lt;/entry&gt;</pre>
+</div>
+<div class="response response400">
+<h5 class="responseCode">Response 400 (Invalid Date)</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDate</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Requested date is invalid.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDate&lt;/errorCode&gt;
+&lt;errorMessage&gt;Requested date is invalid.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response404">
+<h5 class="responseCode">Response 404 (Invalid Dictionary)</h5>
+<div class="json">
+<div class="desc">Make sure that you have passed a valid dictionary code. These are listed by the <a href="#getDictionaries">getDictionaries</a> method.</div>
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDictionary</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Dictionary '{dictionaryCode}' not found.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDictionary&lt;/errorCode&gt;
+&lt;errorMessage&gt;Dictionary  '{dictionaryCode}' not found.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getWordOfTheDay" class="methodName">getWordOfTheDay</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/wordoftheday</pre>
+<div class="desc">Retrieves the full entry which is the Word of the Day for the site.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>day</strong> <span class="contains string">[DATE: YYYY-MM-DD]</span> <span class="requestType">Parameter; Default: today's date</span>
+<div class="desc">The day for which you want to get the word of the day</div>
+</li>
+<li><strong>format</strong> <span class="contains string">[STRING]</span> <span class="requestType">Parameter</span>
+<div class="desc">Format of entries to be returned. <code>xml</code> or <code>html</code>.</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>entryContent</strong> <span class="contains string">[STRING]</span>
+<div class="desc">The actual content of an entry, in XML or HTML5, according to the format selected. See the XML dtd for details.</div>
+</li>
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>entryLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the entry. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>entryUrl</strong> <span class="contains string">[URL]</span>
+<div class="desc">The canonical URL of the entry on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+<li><strong>format</strong> <span class="contains string">[STRING]</span>
+<div class="desc">Format of entry content returned. <code>xml</code> or <code>html</code>.</div>
+</li>
+<li><strong>topics</strong>
+<ul class="contains array">
+<ul class="contains hash">
+<li><strong>topicId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the individual topic. The <a href="#getTopic">getTopic</a> method provides complete information about a topic.</div>
+</li>
+<li><strong>topicLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the topic. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>topicParentId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the parent of the topic.</div>
+</li>
+<li><strong>topicUrl</strong> <span class="contains string">[STRING]</span>
+<div class="desc">The canonical URL of the topic on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+</ul>
+</ul>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;entry&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;entryContent&gt;[STRING]&lt;/entryContent&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;entryLabel&gt;[STRING]&lt;/entryLabel&gt;
+&lt;entryUrl&gt;[URL]&lt;/entryUrl&gt;
+&lt;format&gt;[STRING]&lt;/format&gt;
+&lt;topics&gt;
+&lt;topic&gt;
+&lt;topicId&gt;[IDSTRING]&lt;/topicId&gt;
+&lt;topicLabel&gt;[STRING]&lt;/topicLabel&gt;
+&lt;topicParentId&gt;[IDSTRING]&lt;/topicParentId&gt;
+&lt;topicUrl&gt;[STRING]&lt;/topicUrl&gt;
+&lt;/topic&gt;
+&lt;/topics&gt;
+&lt;/entry&gt;</pre>
+</div>
+<div class="response response400">
+<h5 class="responseCode">Response 400 (Invalid Date)</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDate</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Requested date is invalid.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDate&lt;/errorCode&gt;
+&lt;errorMessage&gt;Requested date is invalid.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div>
+<div class="method">
+<h3 id="getWordOfTheDayPreview" class="methodName">getWordOfTheDayPreview</h3>
+<pre class="methodUrl">GET https://dictionary.cambridge.org/api/v1/wordoftheday/preview</pre>
+<div class="desc">Retrieves a preview of the Word of the Day for the site.</div>
+<div class="request">
+<h5 class="requestHead">Request Parameters</h5>
+<ul class="contains">
+<li><strong>Accept</strong> <span class="contains string">[STRING]</span> <span class="requestType">Header; Default: <code>application/json</code></span>
+<div class="desc"><code>application/json</code> or <code>application/xml</code></div>
+</li>
+<li><strong>day</strong> <span class="contains string">[DATE: YYYY-MM-DD]</span> <span class="requestType">Parameter; Default: today's date</span>
+<div class="desc">The day for which you want to get the word of the day</div>
+</li>
+</ul>
+</div>
+<div class="response response200">
+<h5 class="responseCode">Response 200</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>dictionaryCode</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary dataset. The <a href="#getDictionary">getDictionary</a> method provides complete information about a dictionary.</div>
+</li>
+<li><strong>entryId</strong> <span class="contains string">[IDSTRING]</span>
+<div class="desc">Unique id of the dictionary entry. The <a href="#getEntry">getEntry</a> method provides complete information about an entry.</div>
+</li>
+<li><strong>entryLabel</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A user-facing label which describes the entry. NB: This may contain XML-escaped characters like <code>&amp;amp;</code> for <code>&amp;</code>.</div>
+</li>
+<li><strong>entryUrl</strong> <span class="contains string">[URL]</span>
+<div class="desc">The canonical URL of the entry on <a href="http://dictionary.cambridge.org/">Cambridge Dictionaries Online</a>.</div>
+</li>
+<li><strong>format</strong> <span class="contains string">[STRING]</span>
+<div class="desc">Format of entry content returned. <code>xml</code> or <code>html</code>.</div>
+</li>
+<li><strong>htmlEntryPreview</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A preview of the entry, in HTML, suitable for teasers, etc.</div>
+</li>
+<li><strong>textEntryPreview</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A preview of the entry, in plain text, suitable for teasers, etc.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;entry&gt;
+&lt;dictionaryCode&gt;[IDSTRING]&lt;/dictionaryCode&gt;
+&lt;entryId&gt;[IDSTRING]&lt;/entryId&gt;
+&lt;entryLabel&gt;[STRING]&lt;/entryLabel&gt;
+&lt;entryUrl&gt;[URL]&lt;/entryUrl&gt;
+&lt;format&gt;[STRING]&lt;/format&gt;
+&lt;htmlEntryPreview&gt;[STRING]&lt;/htmlEntryPreview&gt;
+&lt;textEntryPreview&gt;[STRING]&lt;/textEntryPreview&gt;
+&lt;/entry&gt;</pre>
+</div>
+<div class="response response400">
+<h5 class="responseCode">Response 400 (Invalid Date)</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong>
+<div class="text"><code>InvalidDate</code></div>
+</li>
+<li><strong>errorMessage</strong>
+<div class="text"><code>Requested date is invalid.</code></div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;InvalidDate&lt;/errorCode&gt;
+&lt;errorMessage&gt;Requested date is invalid.&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+<div class="response response500">
+<h5 class="responseCode">Response 500</h5>
+<div class="json">
+<ul class="contains hash">
+<li><strong>errorCode</strong> <span class="contains string">[STRING]</span>
+<div class="desc">An error code indicating the type of error</div>
+</li>
+<li><strong>errorMessage</strong> <span class="contains string">[STRING]</span>
+<div class="desc">A full description of the error encountered.</div>
+</li>
+</ul>
+</div>
+<pre class="xml">&lt;error&gt;
+&lt;errorCode&gt;[STRING]&lt;/errorCode&gt;
+&lt;errorMessage&gt;[STRING]&lt;/errorMessage&gt;
+&lt;/error&gt;</pre>
+</div>
+</div> </div>
+</div>
+<hr class="content_divider">
+</div>
+<div class="three columns">
+</div>
+<div class="clear"></div>
+</div>
+</div>
+
+</div>
+
+
+<div id="footer">
+<h3 class="unseen">Footer</h3>
+<div class="container">
+<div class="twelve alpha columns">
+<div class="custom">
+<div class="eight alpha columns toppad"><a title="About" href="http://dictionary.cambridge.org/about.html" target="_blank" rel="noopener noreferrer">About</a> | <a title="About the Corpus" href="http://www.cambridge.org/elt/corpus/" target="_blank" rel="noopener noreferrer">About the Corpus</a> | <a title="Privacy Policy" href="http://www.cambridge.org/about-us/legal-notices/privacy-notice/" target="_blank" rel="noopener noreferrer">Privacy Policy</a> | <a title="Accessibility" href="http://www.cambridge.org/policy/accessibility/" target="_blank" rel="noopener noreferrer">Accessibility</a> | <a title="Contact Us" href="/apply">Contact Us</a> | <a title="Cambridge ELT" href="http://www.cambridge.org/elt/" target="_blank" rel="noopener noreferrer">Cambridge ELT</a></div>
+<div class="four columns press_logo"><a title="Cambridge University Press" href="http://www.cambridge.org/" target="_blank" rel="noopener noreferrer"><img src="/images/cambridge_press_logo.png" alt="" border="0" /></a><br />
+<div class="clear"> </div>
+<a title="Cambridge University Press 2012" href="http://www.cambridge.org/policy/copyright/" target="_blank" rel="noopener noreferrer">© Cambridge University Press 2015</a></div></div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+
+<script type="text/javascript">
+$.preloadImages = function()
+{
+  for (var i = 0; i < arguments.length; i++)
+  {
+    $("<img />").attr("src", arguments[i]);
+  }
+}
+$(document).ready(function()
+{
+  $.preloadImages("/templates/cdoapi/images/header_bg.jpg", "/templates/cdoapi/images/body_bg.jpg", "images/body_bg_72.jpg", "images/body_bg_44.jpg", "images/body_bg_24.jpg", "images/logo.png", "images/logo_apidev.png", "images/banner_image.jpg", "/templates/cdoapi/images/nav_bg.jpg", "/templates/cdoapi/images/nav_hover_bg.jpg");
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("img").addClass('scale-with-grid');
+  //$('iframe').append('<link rel="stylesheet" href="http://cdo-api-cambridge.org/templates/system/css/system.css" type="text/css" />');
+  //alert('yes');
+  $('#contactus .contact-form .control-label label').hover(function(e) {
+		$(this).removeAttr("title");
+    });
+
+});
+</script>
+<script type="text/javascript">
+// Detect IE and append class to <html> element
+var UA = navigator.userAgent;
+var html = document.documentElement;
+if (UA.indexOf("IEMobile") === -1) {
+    if ((UA.indexOf("rv:11.") !== -1) && (!html.classList.contains('ie11')) && window.navigator.msPointerEnabled) {
+        html.classList.add("ie11");
+    } else if ((UA.indexOf("MSIE 10.") !== -1) && (!html.classList.contains('ie10')) && window.navigator.msPointerEnabled) {
+        html.classList.add("ie10");
+    }
+}
+</script>
+
+<script type="text/javascript">
+// Remove tooltip jquery
+var j=jQuery.noConflict();
+j(document).ready(function(){
+	j('.control-label > label').removeAttr('data-original-title');
+});
+</script>
+</body>
+</html>

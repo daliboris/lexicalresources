@@ -1,0 +1,187 @@
+### Endpoints
+
+- GET /fields
+  - Lists available fields
+  - parameters
+    - app_id(string)
+    - app_key(string)
+- GET /grammaticalFeatures/{source_lang}
+  - Lists available grammatical features in a monolingual dataset
+  - parameters
+    - source_lang()
+    - app_id(string)
+    - app_key(string)
+- GET /search/thesaurus/{source_lang}
+  - Retrieves possible dictionary matches to an input string
+  - parameters
+    - source_lang()
+    - q()
+    - prefix()
+    - limit()
+    - offset()
+    - app_id(string)
+    - app_key(string)
+- GET /search/translations/{source_lang_search}/{target_lang_search}
+  - Retrieves possible headwords with translations
+  - parameters
+    - source_lang_search()
+    - target_lang_search()
+    - q()
+    - prefix()
+    - limit()
+    - offset()
+    - app_id(string)
+    - app_key(string)
+- GET /filters/{endpoint}
+  - Lists available filters for specific endpoint
+  - parameters
+    - endpoint()
+    - app_id(string)
+    - app_key(string)
+- GET /registers/{source_lang_registers}/{target_lang_registers}
+  - Lists available registers in a bilingual dataset
+  - parameters
+    - source_lang_registers()
+    - target_lang_registers()
+    - app_id(string)
+    - app_key(string)
+- GET /search/{source_lang}
+  - Retrieves possible dictionary matches to an input string
+  - parameters
+    - source_lang()
+    - q()
+    - prefix()
+    - limit()
+    - offset()
+    - app_id(string)
+    - app_key(string)
+- GET /sentences/{source_lang}/{word_id}
+  - Retrieve real example sentences of a word in use
+  - parameters
+    - source_lang()
+    - word_id()
+    - strictMatch(boolean)
+    - app_id(string)
+    - app_key(string)
+- GET /grammaticalFeatures/{source_lang_grammatical}/{target_lang_grammatical}
+  - Lists available grammatical features in a bilingual dataset
+  - parameters
+    - source_lang_grammatical()
+    - target_lang_grammatical()
+    - app_id(string)
+    - app_key(string)
+- GET /filters
+  - Lists available filters
+  - parameters
+    - app_id(string)
+    - app_key(string)
+- GET /lexicalCategories/{source_lang}
+  - Lists available lexical categories in a monolingual dataset
+  - parameters
+    - source_lang()
+    - app_id(string)
+    - app_key(string)
+- GET /lexicalCategories/{source_lang_lexical}/{target_lang_lexical}
+  - Lists available lexical categories in a bilingual dataset
+  - parameters
+    - source_lang_lexical()
+    - target_lang_lexical()
+    - app_id(string)
+    - app_key(string)
+- GET /domains/{source_lang_domains}/{target_lang_domains}
+  - Lists available domains in a bilingual dataset
+  - parameters
+    - source_lang_domains()
+    - target_lang_domains()
+    - app_id(string)
+    - app_key(string)
+- GET /thesaurus/{source_lang}/{word_id}
+  - Retrieve words that are similar to a given word
+  - parameters
+    - source_lang()
+    - word_id()
+    - fields(array)
+    - strictMatch(boolean)
+    - app_id(string)
+    - app_key(string)
+- GET /entries/{source_lang}/{word_id}
+  - Retrieve dictionary information for a given word
+  - parameters
+    - source_lang()
+    - word_id()
+    - fields(array)
+    - grammaticalFeatures(string)
+    - lexicalCategory(string)
+    - domains(string)
+    - registers(string)
+    - strictMatch(boolean)
+    - app_id(string)
+    - app_key(string)
+- GET /languages
+  - Returns the names of Dictionaries in the API
+  - parameters
+    - sourceLanguage()
+    - targetLanguage()
+    - app_id(string)
+    - app_key(string)
+- GET /registers/{source_lang}
+  - Lists available registers in a  monolingual dataset
+  - parameters
+    - source_lang()
+    - app_id(string)
+    - app_key(string)
+- GET /lemmas/{source_lang}/{word_id}
+  - Check a word exists in the dictionary and retrieve its root form
+  - parameters
+    - source_lang()
+    - word_id()
+    - grammaticalFeatures(string)
+    - lexicalCategory(string)
+    - app_id(string)
+    - app_key(string)
+- GET /translations/{source_lang_translate}/{target_lang_translate}/{word_id}
+  - Retrieve translations for a given word
+  - parameters
+    - source_lang_translate()
+    - target_lang_translate()
+    - word_id()
+    - strictMatch(boolean)
+    - fields(array)
+    - grammaticalFeatures(string)
+    - lexicalCategory(string)
+    - domains(string)
+    - registers(string)
+    - app_id(string)
+    - app_key(string)
+- GET /words/{source_lang}
+  - Check if an inflected form exists in the dictionary and retrieve the entries data of its root form.
+  - parameters
+    - source_lang()
+    - q()
+    - fields(array)
+    - grammaticalFeatures(string)
+    - lexicalCategory(string)
+    - domains(string)
+    - registers(string)
+    - app_id(string)
+    - app_key(string)
+- GET /domains/{source_lang}
+  - Lists available domains in a monolingual dataset
+  - parameters
+    - source_lang()
+    - app_id(string)
+    - app_key(string)
+- GET /fields/{endpoint}
+  - Lists available fields for specific endpoint
+  - parameters
+    - endpoint()
+    - app_id(string)
+    - app_key(string)
+- GET /inflections/{source_lang}/{word_id}
+  - Retrieves the inflected forms of a given word.
+  - parameters
+    - source_lang()
+    - word_id()
+    - strictMatch(boolean)
+    - app_id(string)
+    - app_key(string)

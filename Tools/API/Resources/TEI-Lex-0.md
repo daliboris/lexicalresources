@@ -1,0 +1,118 @@
+### Endpoints
+
+- GET /api/lex/browse
+  - Browse through TEI Publisher collections
+  - parameters
+    - id (string)
+    - chapter (string)
+    - field (string: headword|entry [headword])
+    - position (string: exactly|start|end|everywhere)
+    - start (integer [1])
+    - per-page (integer [20])
+    - highlight (boolean)
+    - format (string: html|xml [html])
+- GET /api/lex/contents
+  - Shows contents of a dictionary
+  - parameters
+    - id (string)
+    - chapter (string)
+    - format (string: html|xml [html])
+- GET /api/lex/dictionaries
+  - Browse through collection of dictionaries
+  - parameters
+    - dictionary-parts (array: header|text|front|body|back [header])
+    - start (integer [1])
+    - per-page (integer [20])
+    - format (string: html|xml [html])
+- GET /api/lex/dictionaries/{id}/contents
+  - Shows contents of a dictionary
+  - parameters
+    - id (string)
+    - chapter (string)
+    - format (string: html|xml [html])
+- GET /api/lex/dictionaries/{id}/entries
+  - Browse through collection of entries within a dictionary
+  - parameters
+    - id (string)
+    - format (string: html|xml [html])
+    - start (integer [1])
+    - per-page (integer [20])
+- GET /api/lex/dictionaries/{id}/entries/{entry-id}
+  - Get dictionary entry
+  - parameters
+    - id (string)
+    - entry-id (string)
+    - format (string: html|xml [html])
+    - start (integer [1])
+    - per-page (integer [20])
+- GET /api/lex/dictionaries/{id}/entries/{entry-id}/comments
+  - Get comments for dictionary entry
+  - parameters
+    - id (string)
+    - entry-id (string)
+    - format (string: html|xml [html])
+- GET /api/lex/domains/{format}
+  - List domains, semantic categories
+  - parameters
+    - format (string: xml|html|json)
+    - query (string)
+    - idno (string)
+    - limit (integer)
+- GET /api/lex/project
+  - Get detailed information about current project
+  - parameters
+    - format (string: xml|json [xml])
+- GET /api/lex/search
+  - Run a search on all TEI Publisher collections
+  - parameters
+    - ids (array)
+    - field[1] (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+    - field[2] (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+    - field[3] (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+    - query-advanced[1] (string)
+    - query-advanced[2] (string)
+    - query-advanced[3] (string)
+    - position[1] (string: exactly|start|end|everywhere)
+    - position[2] (string: exactly|start|end|everywhere)
+    - position[3] (string: exactly|start|end|everywhere)
+    - condition[1] (string: and|not|andNot)
+    - condition[2] (string: and|not|andNot)
+    - condition[3] (string: and|not|andNot)
+    - facet (object)
+    - query (string)
+    - field (string: headword|entry [headword])
+    - position (string: exactly|start|end|everywhere)
+    - start (integer [1])
+    - per-page (integer [20])
+    - highlight (boolean)
+    - format (string: html|xml [html])
+- GET /api/lex/search/autocomplete
+  - List possible completions
+  - parameters
+    - ids (array)
+    - query (string)
+    - field (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+- GET /api/lex/search/facets
+  - List facets
+  - parameters
+    - ids (array)
+    - field[1] (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+    - field[2] (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+    - field[3] (string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all)
+    - query-advanced[1] (string)
+    - query-advanced[2] (string)
+    - query-advanced[3] (string)
+    - position[1] (string: exactly|start|end|everywhere)
+    - position[2] (string: exactly|start|end|everywhere)
+    - position[3] (string: exactly|start|end|everywhere)
+    - condition[1] (string: and|not|andNot)
+    - condition[2] (string: and|not|andNot)
+    - condition[3] (string: and|not|andNot)
+    - facet (object)
+    - query (string)
+    - field (string: headword|entry [headword])
+    - format (string: html|xml [html])
+- GET /api/lex/version
+  - Get version of the current API
+  - parameters
+    - format (string: xml|json [xml])

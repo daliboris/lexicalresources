@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api>
+   <path value="/fields">
+      <method name="get">
+         <summary>Lists available fields</summary>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/grammaticalFeatures/{source_lang}">
+      <method name="get">
+         <summary>Lists available grammatical features in a monolingual dataset</summary>
+         <parameter name="source_lang"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/search/thesaurus/{source_lang}">
+      <method name="get">
+         <summary>Retrieves possible dictionary matches to an input string</summary>
+         <parameter name="source_lang"
+                    schema=""/>
+         <parameter name="q"
+                    schema=""/>
+         <parameter name="prefix"
+                    schema=""/>
+         <parameter name="limit"
+                    schema=""/>
+         <parameter name="offset"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/search/translations/{source_lang_search}/{target_lang_search}">
+      <method name="get">
+         <summary>Retrieves possible headwords with translations</summary>
+         <parameter name="source_lang_search"
+                    schema=""/>
+         <parameter name="target_lang_search"
+                    schema=""/>
+         <parameter name="q"
+                    schema=""/>
+         <parameter name="prefix"
+                    schema=""/>
+         <parameter name="limit"
+                    schema=""/>
+         <parameter name="offset"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/filters/{endpoint}">
+      <method name="get">
+         <summary>Lists available filters for specific endpoint</summary>
+         <parameter name="endpoint"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/registers/{source_lang_registers}/{target_lang_registers}">
+      <method name="get">
+         <summary>Lists available registers in a bilingual dataset</summary>
+         <parameter name="source_lang_registers"
+                    schema=""/>
+         <parameter name="target_lang_registers"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/search/{source_lang}">
+      <method name="get">
+         <summary>Retrieves possible dictionary matches to an input string</summary>
+         <parameter name="source_lang"
+                    schema=""/>
+         <parameter name="q"
+                    schema=""/>
+         <parameter name="prefix"
+                    schema=""/>
+         <parameter name="limit"
+                    schema=""/>
+         <parameter name="offset"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/sentences/{source_lang}/{word_id}">
+      <method name="get">
+         <summary>Retrieve real example sentences of a word in use</summary>
+         <parameter name="source_lang"
+                    schema=""/>
+         <parameter name="word_id"
+                    schema=""/>
+         <parameter name="strictMatch"
+                    schema="boolean"/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/grammaticalFeatures/{source_lang_grammatical}/{target_lang_grammatical}">
+      <method name="get">
+         <summary>Lists available grammatical features in a bilingual dataset</summary>
+         <parameter name="source_lang_grammatical"
+                    schema=""/>
+         <parameter name="target_lang_grammatical"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/filters">
+      <method name="get">
+         <summary>Lists available filters</summary>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/lexicalCategories/{source_lang}">
+      <method name="get">
+         <summary>Lists available lexical categories in a monolingual dataset</summary>
+         <parameter name="source_lang"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/lexicalCategories/{source_lang_lexical}/{target_lang_lexical}">
+      <method name="get">
+         <summary>Lists available lexical categories in a bilingual dataset</summary>
+         <parameter name="source_lang_lexical"
+                    schema=""/>
+         <parameter name="target_lang_lexical"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/domains/{source_lang_domains}/{target_lang_domains}">
+      <method name="get">
+         <summary>Lists available domains in a bilingual dataset</summary>
+         <parameter name="source_lang_domains"
+                    schema=""/>
+         <parameter name="target_lang_domains"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/thesaurus/{source_lang}/{word_id}">
+      <method name="get">
+         <summary>Retrieve words that are similar to a given word</summary>
+         <parameter name="source_lang"
+                    schema=""/>
+         <parameter name="word_id"
+                    schema=""/>
+         <parameter name="fields"
+                    schema="array"/>
+         <parameter name="strictMatch"
+                    schema="boolean"/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/entries/{source_lang}/{word_id}">
+      <method name="get">
+         <summary>Retrieve dictionary information for a given word</summary>
+         <parameter name="source_lang"
+                    schema=""/>
+         <parameter name="word_id"
+                    schema=""/>
+         <parameter name="fields"
+                    schema="array"/>
+         <parameter name="grammaticalFeatures"
+                    schema="string"/>
+         <parameter name="lexicalCategory"
+                    schema="string"/>
+         <parameter name="domains"
+                    schema="string"/>
+         <parameter name="registers"
+                    schema="string"/>
+         <parameter name="strictMatch"
+                    schema="boolean"/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/languages">
+      <method name="get">
+         <summary>Returns the names of Dictionaries in the API</summary>
+         <parameter name="sourceLanguage"
+                    schema=""/>
+         <parameter name="targetLanguage"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/registers/{source_lang}">
+      <method name="get">
+         <summary>Lists available registers in a  monolingual dataset</summary>
+         <parameter name="source_lang"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/lemmas/{source_lang}/{word_id}">
+      <method name="get">
+         <summary>Check a word exists in the dictionary and retrieve its root form</summary>
+         <parameter name="source_lang"
+                    schema=""/>
+         <parameter name="word_id"
+                    schema=""/>
+         <parameter name="grammaticalFeatures"
+                    schema="string"/>
+         <parameter name="lexicalCategory"
+                    schema="string"/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/translations/{source_lang_translate}/{target_lang_translate}/{word_id}">
+      <method name="get">
+         <summary>Retrieve translations for a given word</summary>
+         <parameter name="source_lang_translate"
+                    schema=""/>
+         <parameter name="target_lang_translate"
+                    schema=""/>
+         <parameter name="word_id"
+                    schema=""/>
+         <parameter name="strictMatch"
+                    schema="boolean"/>
+         <parameter name="fields"
+                    schema="array"/>
+         <parameter name="grammaticalFeatures"
+                    schema="string"/>
+         <parameter name="lexicalCategory"
+                    schema="string"/>
+         <parameter name="domains"
+                    schema="string"/>
+         <parameter name="registers"
+                    schema="string"/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/words/{source_lang}">
+      <method name="get">
+         <summary>Check if an inflected form exists in the dictionary and retrieve the entries data of its root form.</summary>
+         <parameter name="source_lang"
+                    schema=""/>
+         <parameter name="q"
+                    schema=""/>
+         <parameter name="fields"
+                    schema="array"/>
+         <parameter name="grammaticalFeatures"
+                    schema="string"/>
+         <parameter name="lexicalCategory"
+                    schema="string"/>
+         <parameter name="domains"
+                    schema="string"/>
+         <parameter name="registers"
+                    schema="string"/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/domains/{source_lang}">
+      <method name="get">
+         <summary>Lists available domains in a monolingual dataset</summary>
+         <parameter name="source_lang"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/fields/{endpoint}">
+      <method name="get">
+         <summary>Lists available fields for specific endpoint</summary>
+         <parameter name="endpoint"
+                    schema=""/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/inflections/{source_lang}/{word_id}">
+      <method name="get">
+         <summary>Retrieves the inflected forms of a given word.</summary>
+         <parameter name="source_lang"
+                    schema=""/>
+         <parameter name="word_id"
+                    schema=""/>
+         <parameter name="strictMatch"
+                    schema="boolean"/>
+         <parameter name="app_id"
+                    schema="string"/>
+         <parameter name="app_key"
+                    schema="string"/>
+      </method>
+   </path>
+</api>

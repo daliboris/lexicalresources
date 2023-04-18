@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api>
+   <path value="/api/lex/dictionaries/{id}/entries/{entry-id}/comments">
+      <method name="get">
+         <summary>Get comments for dictionary entry</summary>
+         <parameter name="id"
+                    schema="string"/>
+         <parameter name="entry-id"
+                    schema="string"/>
+         <parameter name="format"
+                    schema="string: html|xml [html]"/>
+      </method>
+   </path>
+   <path value="/test/advanced-query">
+      <method name="get">
+         <summary>Test building query element from search input</summary>
+         <parameter name="format"
+                    schema="string: html|xml [html]"/>
+         <parameter name="field[1]"
+                    schema="string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all"/>
+         <parameter name="field[2]"
+                    schema="string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all"/>
+         <parameter name="field[3]"
+                    schema="string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all"/>
+         <parameter name="query-advanced[1]"
+                    schema="string"/>
+         <parameter name="query-advanced[2]"
+                    schema="string"/>
+         <parameter name="query-advanced[3]"
+                    schema="string"/>
+         <parameter name="position[1]"
+                    schema="string: exactly|start|end|everywhere"/>
+         <parameter name="position[2]"
+                    schema="string: exactly|start|end|everywhere"/>
+         <parameter name="position[3]"
+                    schema="string: exactly|start|end|everywhere"/>
+         <parameter name="condition[1]"
+                    schema="string: and|not|andNot"/>
+         <parameter name="condition[2]"
+                    schema="string: and|not|andNot"/>
+         <parameter name="condition[3]"
+                    schema="string: and|not|andNot"/>
+      </method>
+   </path>
+   <path value="/api/lex/domains/{format}">
+      <method name="get">
+         <summary>List domains, semantic categories</summary>
+         <parameter name="format"
+                    schema="string: xml|html|json"/>
+         <parameter name="query"
+                    schema="string"/>
+         <parameter name="idno"
+                    schema="string"/>
+         <parameter name="limit"
+                    schema="integer"/>
+      </method>
+   </path>
+   <path value="/api/lex/version">
+      <method name="get">
+         <summary>Get version of the current API</summary>
+         <parameter name="format"
+                    schema="string: xml|json [xml]"/>
+      </method>
+   </path>
+   <path value="/api/lex/dictionaries">
+      <method name="get">
+         <summary>Browse through collection of dictionaries</summary>
+         <parameter name="dictionary-parts"
+                    schema="array: header|text|front|body|back [header]"/>
+         <parameter name="start"
+                    schema="integer [1]"/>
+         <parameter name="per-page"
+                    schema="integer [20]"/>
+         <parameter name="format"
+                    schema="string: html|xml [html]"/>
+      </method>
+   </path>
+   <path value="/test/search">
+      <method name="post">
+         <summary>Test searching via Lucence queries and option</summary>
+         <parameter name="query"
+                    schema="object"/>
+         <parameter name="options"
+                    schema="object"/>
+         <parameter name="doc"
+                    schema="array"/>
+      </method>
+   </path>
+   <path value="/api/lex/search/autocomplete">
+      <method name="get">
+         <summary>List possible completions</summary>
+         <parameter name="ids"
+                    schema="array"/>
+         <parameter name="query"
+                    schema="string"/>
+         <parameter name="field"
+                    schema="string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all"/>
+      </method>
+   </path>
+   <path value="/api/lex/dictionaries/{id}/entries/{entry-id}">
+      <method name="get">
+         <summary>Get dictionary entry</summary>
+         <parameter name="id"
+                    schema="string"/>
+         <parameter name="entry-id"
+                    schema="string"/>
+         <parameter name="format"
+                    schema="string: html|xml [html]"/>
+         <parameter name="start"
+                    schema="integer [1]"/>
+         <parameter name="per-page"
+                    schema="integer [20]"/>
+      </method>
+   </path>
+   <path value="/api/lex/search/facets">
+      <method name="get">
+         <summary>List facets</summary>
+         <parameter name="ids"
+                    schema="array"/>
+         <parameter name="field[1]"
+                    schema="string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all"/>
+         <parameter name="field[2]"
+                    schema="string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all"/>
+         <parameter name="field[3]"
+                    schema="string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all"/>
+         <parameter name="query-advanced[1]"
+                    schema="string"/>
+         <parameter name="query-advanced[2]"
+                    schema="string"/>
+         <parameter name="query-advanced[3]"
+                    schema="string"/>
+         <parameter name="position[1]"
+                    schema="string: exactly|start|end|everywhere"/>
+         <parameter name="position[2]"
+                    schema="string: exactly|start|end|everywhere"/>
+         <parameter name="position[3]"
+                    schema="string: exactly|start|end|everywhere"/>
+         <parameter name="condition[1]"
+                    schema="string: and|not|andNot"/>
+         <parameter name="condition[2]"
+                    schema="string: and|not|andNot"/>
+         <parameter name="condition[3]"
+                    schema="string: and|not|andNot"/>
+         <parameter name="facet"
+                    schema="object"/>
+         <parameter name="query"
+                    schema="string"/>
+         <parameter name="field"
+                    schema="string: headword|entry [headword]"/>
+         <parameter name="format"
+                    schema="string: html|xml [html]"/>
+      </method>
+   </path>
+   <path value="/test/fulltex-search">
+      <method name="post">
+         <summary>Test searching via Lucence queries and option</summary>
+      </method>
+   </path>
+   <path value="/api/lex/search">
+      <method name="get">
+         <summary>Run a search on all TEI Publisher collections</summary>
+         <parameter name="ids"
+                    schema="array"/>
+         <parameter name="field[1]"
+                    schema="string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all"/>
+         <parameter name="field[2]"
+                    schema="string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all"/>
+         <parameter name="field[3]"
+                    schema="string: pronunciation|partOfSpeechAll|domain|lemma|reversal|all"/>
+         <parameter name="query-advanced[1]"
+                    schema="string"/>
+         <parameter name="query-advanced[2]"
+                    schema="string"/>
+         <parameter name="query-advanced[3]"
+                    schema="string"/>
+         <parameter name="position[1]"
+                    schema="string: exactly|start|end|everywhere"/>
+         <parameter name="position[2]"
+                    schema="string: exactly|start|end|everywhere"/>
+         <parameter name="position[3]"
+                    schema="string: exactly|start|end|everywhere"/>
+         <parameter name="condition[1]"
+                    schema="string: and|not|andNot"/>
+         <parameter name="condition[2]"
+                    schema="string: and|not|andNot"/>
+         <parameter name="condition[3]"
+                    schema="string: and|not|andNot"/>
+         <parameter name="facet"
+                    schema="object"/>
+         <parameter name="query"
+                    schema="string"/>
+         <parameter name="field"
+                    schema="string: headword|entry [headword]"/>
+         <parameter name="position"
+                    schema="string: exactly|start|end|everywhere"/>
+         <parameter name="start"
+                    schema="integer [1]"/>
+         <parameter name="per-page"
+                    schema="integer [20]"/>
+         <parameter name="highlight"
+                    schema="boolean"/>
+         <parameter name="format"
+                    schema="string: html|xml [html]"/>
+      </method>
+   </path>
+   <path value="/test/query">
+      <method name="get">
+         <summary>Test building query element from search input</summary>
+         <parameter name="query"
+                    schema="string"/>
+         <parameter name="field"
+                    schema="string: headword|entry [headword]"/>
+         <parameter name="position"
+                    schema="string: exactly|start|end|everywhere [exactly]"/>
+         <parameter name="doc"
+                    schema="array"/>
+         <parameter name="facet"
+                    schema="object"/>
+      </method>
+   </path>
+   <path value="/api/lex/project">
+      <method name="get">
+         <summary>Get detailed information about current project</summary>
+         <parameter name="format"
+                    schema="string: xml|json [xml]"/>
+      </method>
+   </path>
+   <path value="/api/lex/dictionaries/{id}/contents">
+      <method name="get">
+         <summary>Shows contents of a dictionary</summary>
+         <parameter name="id"
+                    schema="string"/>
+         <parameter name="chapter"
+                    schema="string"/>
+         <parameter name="format"
+                    schema="string: html|xml [html]"/>
+      </method>
+   </path>
+   <path value="/api/lex/contents">
+      <method name="get">
+         <summary>Shows contents of a dictionary</summary>
+         <parameter name="id"
+                    schema="string"/>
+         <parameter name="chapter"
+                    schema="string"/>
+         <parameter name="format"
+                    schema="string: html|xml [html]"/>
+      </method>
+   </path>
+   <path value="/api/lex/dictionaries/{id}/entries">
+      <method name="get">
+         <summary>Browse through collection of entries within a dictionary</summary>
+         <parameter name="id"
+                    schema="string"/>
+         <parameter name="format"
+                    schema="string: html|xml [html]"/>
+         <parameter name="start"
+                    schema="integer [1]"/>
+         <parameter name="per-page"
+                    schema="integer [20]"/>
+      </method>
+   </path>
+   <path value="/api/lex/browse">
+      <method name="get">
+         <summary>Browse through TEI Publisher collections</summary>
+         <parameter name="id"
+                    schema="string"/>
+         <parameter name="chapter"
+                    schema="string"/>
+         <parameter name="field"
+                    schema="string: headword|entry [headword]"/>
+         <parameter name="position"
+                    schema="string: exactly|start|end|everywhere"/>
+         <parameter name="start"
+                    schema="integer [1]"/>
+         <parameter name="per-page"
+                    schema="integer [20]"/>
+         <parameter name="highlight"
+                    schema="boolean"/>
+         <parameter name="format"
+                    schema="string: html|xml [html]"/>
+      </method>
+   </path>
+</api>

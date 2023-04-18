@@ -1,0 +1,46 @@
+### Endpoints
+
+- GET /about/{dictionary}
+  - About the dictionary
+  - parameters
+    - dictionary(string)
+    - X-API-KEY(string)
+- GET /tei/{dictionary}/{id}
+  - Entry XML
+  - parameters
+    - dictionary(string)
+    - id(string)
+    - X-API-KEY(string)
+- GET /lemma/{dictionary}/{headword}
+  - Headword lookup
+  - parameters
+    - dictionary(string)
+    - headword(string)
+    - partOfSpeech(string)
+    - limit(integer)
+    - offset(integer)
+    - inflected(boolean)
+    - X-API-KEY(string)
+- GET /ontolex/{dictionary}/{id}
+  - Entry as Turtle
+  - parameters
+    - dictionary(string)
+    - id(string)
+    - X-API-KEY(string)
+- GET /list/{dictionary}
+  - Get all lemmas
+  - parameters
+    - dictionary(string)
+    - limit(integer)
+    - offset(integer)
+    - X-API-KEY(string)
+- GET /dictionaries
+  - Get dictionaries
+  - parameters
+    - X-API-KEY(string)
+- GET /json/{dictionary}/{id}
+  - Entry as JSON
+  - parameters
+    - dictionary(string)
+    - id(string)
+    - X-API-KEY(string)

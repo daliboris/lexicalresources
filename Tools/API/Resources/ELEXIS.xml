@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api>
+   <path value="/about/{dictionary}">
+      <method name="get">
+         <summary>About the dictionary</summary>
+         <parameter name="dictionary"
+                    schema="string"/>
+         <parameter name="X-API-KEY"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/tei/{dictionary}/{id}">
+      <method name="get">
+         <summary>Entry XML</summary>
+         <parameter name="dictionary"
+                    schema="string"/>
+         <parameter name="id"
+                    schema="string"/>
+         <parameter name="X-API-KEY"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/lemma/{dictionary}/{headword}">
+      <method name="get">
+         <summary>Headword lookup</summary>
+         <parameter name="dictionary"
+                    schema="string"/>
+         <parameter name="headword"
+                    schema="string"/>
+         <parameter name="partOfSpeech"
+                    schema="string: ADJ|ADP|ADV|AUX|CCONJ|DET|INTJ|NOUN|NUM|PART|PRON|PROPN|PUNCT|SCONJ|SYM|VERB|X|adjective|adposition|adverb|auxiliary|coordinatingConjunction|determiner|interjection|commonNoun|numeral|particle|pronoun|properNoun|punctuation|subordinatingConjunction|symbol|verb|other"/>
+         <parameter name="limit"
+                    schema="integer"/>
+         <parameter name="offset"
+                    schema="integer"/>
+         <parameter name="inflected"
+                    schema="boolean"/>
+         <parameter name="X-API-KEY"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/ontolex/{dictionary}/{id}">
+      <method name="get">
+         <summary>Entry as Turtle</summary>
+         <parameter name="dictionary"
+                    schema="string"/>
+         <parameter name="id"
+                    schema="string"/>
+         <parameter name="X-API-KEY"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/list/{dictionary}">
+      <method name="get">
+         <summary>Get all lemmas</summary>
+         <parameter name="dictionary"
+                    schema="string"/>
+         <parameter name="limit"
+                    schema="integer"/>
+         <parameter name="offset"
+                    schema="integer"/>
+         <parameter name="X-API-KEY"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/dictionaries">
+      <method name="get">
+         <summary>Get dictionaries</summary>
+         <parameter name="X-API-KEY"
+                    schema="string"/>
+      </method>
+   </path>
+   <path value="/json/{dictionary}/{id}">
+      <method name="get">
+         <summary>Entry as JSON</summary>
+         <parameter name="dictionary"
+                    schema="string"/>
+         <parameter name="id"
+                    schema="string"/>
+         <parameter name="X-API-KEY"
+                    schema="string"/>
+      </method>
+   </path>
+</api>
