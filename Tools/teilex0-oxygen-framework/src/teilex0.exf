@@ -10,12 +10,12 @@ from the contextual menu.
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.oxygenxml.com/ns/framework/extend http://www.oxygenxml.com/ns/framework/extend/frameworkExtensionScript.xsd">
   <name>TEI Lex-0</name>
-  <description>oXygen XML framework for TEI Lex-0 resources.</description>
+  <description>oXygen XML Editor framework for TEI Lex-0 resources.</description>
   <priority>High</priority>
 
   <associationRules>
    <addRule namespace="http://www.tei-c.org/ns/1.0" rootElementLocalName="TEI" fileName="*" publicID="*" javaRuleClass=""
-      attributeLocalName="*" attributeNamespace="*" attributeValue="*"/>
+      attributeLocalName="type" attributeNamespace="*" attributeValue="lex0"/>
   </associationRules>
 
 
