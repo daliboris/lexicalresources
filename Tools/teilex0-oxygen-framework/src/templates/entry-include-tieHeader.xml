@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="DICT" type="lex0" xmlns:xi="http://www.w3.org/2001/XInclude">
+ <xi:include href="dictionary.xml" xpointer="DICT-teiHeader" />
+ <text>
+  <body>
+   <div xml:id="DICT.div.001">
+    <entry type="mainEntry" xml:lang="" xml:id="DICT.x">
+     <form type="lemma">
+      <orth></orth>
+      <pron></pron>
+     </form>
+     <gramGrp>
+      <gram type="pos" norm=""></gram>
+      <gram type="gen"></gram>
+     </gramGrp>
+     <sense xml:id="DICT.x.s.1">
+      <def></def>
+     </sense>
+    </entry>
+   </div> 
+ </body>
+ </text>
+</TEI>
